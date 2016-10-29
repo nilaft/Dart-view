@@ -1,0 +1,603 @@
+{  
+         
+"success":true,
+   "results":{  
+               
+"cumulativeData":{  
+                     
+"baseAttempts":3284755,
+                  "baseSuccessfulAttempts":3057418,
+                  "baseSuccess":93.08,
+                  "baseAaa":1.37,
+                  "againstAttempts":3153278,
+                  "againstSuccessfulAttempts":2932688,
+                  "againstSuccess":93.0,
+                  "againstAaa":1.39,
+                  "variance":-0.0799999999999983,
+                  "trendData":{  
+                           
+"1470009600000":{  
+                                 
+"SUCCESS":93.08,
+                              "FAILURE":6.92                           
+            },
+                        "1472688000000":{  
+                                 
+"SUCCESS":93.0,
+                              "FAILURE":7.0                           
+            }                     
+         }               
+      },
+            "overallData":{  
+                     
+"ARRIS CONTROLLER LEGACY":{  
+                           
+"baseAttempts":431708,
+                        "baseSuccessfulAttempts":0,
+                        "baseSuccess":68.58,
+                        "baseAaa":1.72,
+                        "againstAttempts":379338,
+                        "againstSuccessfulAttempts":0,
+                        "againstSuccess":67.68,
+                        "againstAaa":1.79,
+                        "variance":-0.8999999999999915,
+                        "trendData":{  
+                                 
+"1470009600000":{  
+                                       
+"SUCCESS":68.58                                 
+               },
+                              "1472688000000":{  
+                                       
+"SUCCESS":67.68                                 
+               }                           
+            }                     
+         },
+                  "VOICE":{  
+                           
+"baseAttempts":598637,
+                        "baseSuccessfulAttempts":0,
+                        "baseSuccess":94.92,
+                        "baseAaa":1.26,
+                        "againstAttempts":599041,
+                        "againstSuccessfulAttempts":0,
+                        "againstSuccess":94.18,
+                        "againstAaa":1.29,
+                        "variance":-0.7399999999999949,
+                        "trendData":{  
+                                 
+"1470009600000":{  
+                                       
+"SUCCESS":94.92                                 
+               },
+                              "1472688000000":{  
+                                       
+"SUCCESS":94.18                                 
+               }                           
+            }                     
+         },
+                  "DATA":{  
+                           
+"baseAttempts":1790768,
+                        "baseSuccessfulAttempts":0,
+                        "baseSuccess":98.57,
+                        "baseAaa":1.37,
+                        "againstAttempts":1674336,
+                        "againstSuccessfulAttempts":0,
+                        "againstSuccess":98.36,
+                        "againstAaa":1.38,
+                        "variance":-0.20999999999999375,
+                        "trendData":{  
+                                 
+"1470009600000":{  
+                                       
+"SUCCESS":98.57                                 
+               },
+                              "1472688000000":{  
+                                       
+"SUCCESS":98.36                                 
+               }                           
+            }                     
+         },
+                  "ARRIS CONTROLLER X1":{  
+                           
+"baseAttempts":463642,
+                        "baseSuccessfulAttempts":0,
+                        "baseSuccess":92.31,
+                        "baseAaa":1.28,
+                        "againstAttempts":500563,
+                        "againstSuccessfulAttempts":0,
+                        "againstSuccess":92.87,
+                        "againstAaa":1.31,
+                        "variance":0.5600000000000023,
+                        "trendData":{  
+                                 
+"1470009600000":{  
+                                       
+"SUCCESS":92.31                                 
+               },
+                              "1472688000000":{  
+                                       
+"SUCCESS":92.87                                 
+               }                           
+            }                     
+         }               
+      },
+            "data":{  
+                     
+"TECH":{  
+                           
+"metrics":{  
+                                 
+"HH":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":376825,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":96.47,
+                                          "againstAttempts":369519,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":95.07,
+                                          "variance":-1.4000000000000057                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":949395,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":99.61,
+                                          "againstAttempts":880275,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":98.64,
+                                          "variance":-0.9699999999999989                                       
+                  }                                 
+               },
+                              "null":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":105,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":98.1,
+                                          "againstAttempts":48,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":1.9000000000000057                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":328,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":99.39,
+                                          "againstAttempts":176,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":99.43,
+                                          "variance":0.04000000000000625                                       
+                  }                                 
+               },
+                              "ONLINE":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":31233,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":93.28,
+                                          "againstAttempts":36083,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":92.84,
+                                          "variance":-0.4399999999999977                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":106984,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":98.74,
+                                          "againstAttempts":123110,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":98.1,
+                                          "variance":-0.6400000000000006                                       
+                  }                                 
+               },
+                              "SUSI":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":7,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":57.14,
+                                          "againstAttempts":2,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":50.0,
+                                          "variance":-7.140000000000001                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":94,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":37,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":97.3,
+                                          "variance":-2.700000000000003                                       
+                  }                                 
+               }                           
+            },
+                        "aggMetrics":{  
+                                 
+"VOICE":{  
+                                       
+"baseAttempts":408065,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":96.22,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":405604,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":94.87,
+                                    "againstAaa":0.0,
+                                    "variance":-1.3499999999999943,
+                                    "trendData":{  
+                                         
+                  }                                 
+               },
+                              "DATA":{  
+                                       
+"baseAttempts":1056473,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":99.52,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":1003422,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":98.57,
+                                    "againstAaa":0.0,
+                                    "variance":-0.9500000000000028,
+                                    "trendData":{  
+                                         
+                  }                                 
+               }                           
+            }                     
+         },
+                  "SIK":{  
+                           
+"metrics":{  
+                                 
+"IVR":{  
+                                       
+"ARRIS CONTROLLER LEGACY":{  
+                                             
+"baseAttempts":107949,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":94.83,
+                                          "againstAttempts":77564,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":94.87,
+                                          "variance":0.04000000000000625                                       
+                  },
+                                    "VOICE":{  
+                                             
+"baseAttempts":52117,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":76.26,
+                                          "againstAttempts":46187,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":74.55,
+                                          "variance":-1.710000000000008                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":81711,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":91.7,
+                                          "againstAttempts":69878,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":92.62,
+                                          "variance":0.9200000000000017                                       
+                  }                                 
+               },
+                              "null":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":92,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":98.91,
+                                          "againstAttempts":58,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":98.28,
+                                          "variance":-0.6299999999999955                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":351,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":99.43,
+                                          "againstAttempts":306,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":0.5699999999999932                                       
+                  }                                 
+               },
+                              "EINSTEIN":{  
+                                       
+"ARRIS CONTROLLER LEGACY":{  
+                                             
+"baseAttempts":143028,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":65.85,
+                                          "againstAttempts":137595,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":66.21,
+                                          "variance":0.35999999999999943                                       
+                  },
+                                    "ARRIS CONTROLLER X1":{  
+                                             
+"baseAttempts":15106,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":89.68,
+                                          "againstAttempts":18266,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":90.4,
+                                          "variance":0.7199999999999989                                       
+                  }                                 
+               },
+                              "true":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":1,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":1,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":0.0                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":6,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":1,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":0.0                                       
+                  }                                 
+               },
+                              "DIRECT":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":10,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":22,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":0.0                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":22,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":68,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":0.0                                       
+                  }                                 
+               },
+                              "ONLINE":{  
+                                       
+"ARRIS CONTROLLER LEGACY":{  
+                                             
+"baseAttempts":180731,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":55.05,
+                                          "againstAttempts":164179,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":56.07,
+                                          "variance":1.0200000000000031                                       
+                  },
+                                    "VOICE":{  
+                                             
+"baseAttempts":138367,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":98.12,
+                                          "againstAttempts":147164,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":98.46,
+                                          "variance":0.3399999999999892                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":650607,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":97.88,
+                                          "againstAttempts":597938,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":98.72,
+                                          "variance":0.8400000000000034                                       
+                  }                                 
+               },
+                              "$activationSourceModel":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":0,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":0.0,
+                                          "againstAttempts":35,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":0.0,
+                                          "variance":0.0                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":0,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":0.0,
+                                          "againstAttempts":288,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":0.0,
+                                          "variance":0.0                                       
+                  }                                 
+               },
+                              "SUSI":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":87,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":94.25,
+                                          "againstAttempts":51,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":60.78,
+                                          "variance":-33.47                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":1975,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":99.54,
+                                          "againstAttempts":2809,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":99.47,
+                                          "variance":-0.07000000000000739                                       
+                  }                                 
+               }                           
+            },
+                        "aggMetrics":{  
+                                 
+"ARRIS CONTROLLER LEGACY":{  
+                                       
+"baseAttempts":431708,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":68.58,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":379338,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":67.68,
+                                    "againstAaa":0.0,
+                                    "variance":-0.8999999999999915,
+                                    "trendData":{  
+                                         
+                  }                                 
+               },
+                              "VOICE":{  
+                                       
+"baseAttempts":190571,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":92.14,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":193402,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":92.74,
+                                    "againstAaa":0.0,
+                                    "variance":0.5999999999999943,
+                                    "trendData":{  
+                                         
+                  }                                 
+               },
+                              "DATA":{  
+                                       
+"baseAttempts":734293,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":97.19,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":670625,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":98.09,
+                                    "againstAaa":0.0,
+                                    "variance":0.9000000000000057,
+                                    "trendData":{  
+                                         
+                  }                                 
+               },
+                              "ARRIS CONTROLLER X1":{  
+                                       
+"baseAttempts":15106,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":89.68,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":18266,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":90.4,
+                                    "againstAaa":0.0,
+                                    "variance":0.7199999999999989,
+                                    "trendData":{  
+                                         
+                  }                                 
+               }                           
+            }                     
+         },
+                  "null":{  
+                           
+"metrics":{  
+                                 
+"ONLINE":{  
+                                       
+"VOICE":{  
+                                             
+"baseAttempts":1,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":0,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":0.0,
+                                          "variance":0.0                                       
+                  },
+                                    "DATA":{  
+                                             
+"baseAttempts":2,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":100.0,
+                                          "againstAttempts":1,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":100.0,
+                                          "variance":0.0                                       
+                  }                                 
+               }                           
+            },
+                        "aggMetrics":{  
+                             
+            }                     
+         },
+                  "TECH/SIK":{  
+                           
+"metrics":{  
+                                 
+"TV":{  
+                                       
+"ARRIS CONTROLLER X1":{  
+                                             
+"baseAttempts":448536,
+                                          "baseSuccessfulAttempts":0,
+                                          "baseSuccess":92.4,
+                                          "againstAttempts":482297,
+                                          "againstSuccessfulAttempts":0,
+                                          "againstSuccess":92.96,
+                                          "variance":0.5599999999999881                                       
+                  }                                 
+               }                           
+            },
+                        "aggMetrics":{  
+                                 
+"ARRIS CONTROLLER X1":{  
+                                       
+"baseAttempts":448536,
+                                    "baseSuccessfulAttempts":0,
+                                    "baseSuccess":92.4,
+                                    "baseAaa":0.0,
+                                    "againstAttempts":482297,
+                                    "againstSuccessfulAttempts":0,
+                                    "againstSuccess":92.96,
+                                    "againstAaa":0.0,
+                                    "variance":0.5599999999999881,
+                                    "trendData":{  
+                                         
+                  }                                 
+               }                           
+            }                     
+         }               
+      }         
+   }
+}
