@@ -1,0 +1,32 @@
+:host{
+    border-left: 1.8em solid #E2E2E2;
+    position: relative;
+    display: block;
+}
+
+.mrrowbm-tag{
+    position: absolute;
+    top: 0;
+    line-height: 1;
+    color: #585858;
+    transform: translate(0,0) rotate(-90deg);
+    font-size: .6em;
+    bottom: 0;
+    margin: auto;
+    height: 1em;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    transform-origin: center center;
+    width: 10em;
+    pointer-events: none;
+    text-align: center;
+    left: -6.5em;
+}
+
+.mrrowbm-tagbdr{
+    position: absolute;
+    left:-1.8em;
+    width:.2em;
+    bottom:0;
+    top:0;
+}

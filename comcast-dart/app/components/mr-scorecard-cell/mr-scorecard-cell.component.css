@@ -1,0 +1,61 @@
+.mrscorecell-wrp{
+    display: flex;
+    justify-content: space-between;
+    width: 13em;
+    font-size: .8em;
+}
+
+
+.mrscorecell-col{
+    padding-right: .5em;
+}
+
+.mrscorecell-col:last-child{
+    padding-right: 0;   
+}
+
+.mrscorecell-col1{
+    width: 6em;
+}
+
+.mrscorecell-col2{
+    flex-grow: 1;
+}
+
+.mrscorecell-col3{
+    width: 2em;
+}
+
+
+.mrscorecell-col > div{
+    margin-top: .5em;
+    font-size: .8em ;
+}
+
+.mrscorecell-firstrow{
+    font-size: 1.5em !important;
+    height: 1.2em;
+    margin-top: .3em !important;
+    margin-bottom: .2em;
+}
+
+.mrscorecell-percentview{
+    display: flex;
+    align-items: flex-end;
+}
+
+.mrscorecell-label{
+    color: rgb(154,154,154);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.mrscorecell-mainval{
+    color: rgb(84,84,84);
+    font-weight: 600;
+}
+
+.mrscorecell-subval{
+     color: rgb(140,140,140);
+     text-align: right;
+}

@@ -1,0 +1,17 @@
+<div style="width: 100%;
+    height: 100vh;
+    background: #EEEEEE;">
+  <div style="height:50px;background:#6AD3E3"></div>
+  <div >
+    <div  style="width: 200px;background: #2C2C2C;height: calc(100vh - 50px); color:white;padding-top:1em; float:left">
+         <!--<div (click)="tab=1" style="cursor:pointer;padding:.5em 1em;">Scorecard</div>-->
+         <!--<div (click)="tab=2" style="cursor:pointer;padding:.5em 1em;">Auth</div>-->
+         <!--<div (click)="tab=3" style="cursor:pointer;padding:.5em 1em;">FCS</div>-->
+    </div>
+    <div style="display:block;overflow: scroll;height: calc(100vh - 50px); padding-right: 1.4em;">
+      <mr-scorecard-page  *ngIf="tab==1"></mr-scorecard-page>
+      <mr-authmechanism-page  *ngIf="tab==2"></mr-authmechanism-page>
+      <mr-fcsdetail-page  *ngIf="tab==3" ></mr-fcsdetail-page>
+    </div>
+  </div>
+</div>

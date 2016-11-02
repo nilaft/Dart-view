@@ -1,0 +1,5 @@
+<div [class.is-negative]="!isPositive" class="mrpercentview">
+    <span class="mrpercentview-arrow"></span>
+    <span class="mrpercentview-sign">{{isPositive?'+':'-'}}</span>
+    <span class="mrpercentview-val">{{valueFormatted}}%</span>
+</div>
