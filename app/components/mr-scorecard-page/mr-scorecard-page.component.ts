@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {ScorecardActivationService} from '../../services/scorecard_activation.service';
+import { Component, OnInit, Input , Output, EventEmitter, ViewEncapsulation} from '@angular/core';
+import {ActivationDataConverterService} from '../../services/activation-data-converter.service';
+
 
 @Component({
   selector: 'mr-scorecard-page',
@@ -7,133 +8,51 @@ import {ScorecardActivationService} from '../../services/scorecard_activation.se
   styleUrls: ['./mr-scorecard-page.component.css']
 })
 export class MrScorecardPageComponent implements OnInit {
+   @Input('data') data;
+   @Input('col-labels') colLabels;
+   @Input('row-labels') rowLabels;
+   @Input('key-ignore') keysIgnore = {};
 
-   summaryPercent = 33;
+   @Output('change') paramsChanged:EventEmitter<any> = new EventEmitter<any>();;
+
    newFilter = {};
    curFilter = {};
-   data:any = {};
 
    tableData:any = [];
    overallData:any = [];
     
-   labelsArr = [
-      {
-        "label" : "Data",
-        "key"   : "DATA"
-      },
-      {
-        "label" : "Voice",
-        "key"   : "VOICE"
-      },
-      {
-        "label" : "Arris Controller Legacy",
-        "key"   : "ARRIS CONTROLLER LEGACY"
-      },
-      {
-        "label" : "Arris Controller X1",
-        "key"   : "ARRIS CONTROLLER X1"
-      }
-  ];
-
-  constructor(private dataService:ScorecardActivationService) { }
+  
+  constructor(private dataConverter:ActivationDataConverterService) { }
 
   ngOnInit() {
-    this._fetchData();
 
   }
 
+
+  
   ngOnChanges(changes){
-      console.log(changes);
-      if(changes.newFilter){
-          console.log("HHHH");
-         
-      }
-  }
-
-  _fetchData(){
-    
-    var onComplete = (data)=>{
-      this.data = data.results;
-      this._generateData(this.data,this.labelsArr,this.newFilter);
+    if(changes.data && changes.data.currentValue){
+      this._generateData(changes.data.currentValue,this.newFilter);
       this.curFilter = JSON.parse(JSON.stringify(this.newFilter));
-    };
+    }
+
     
-    this.dataService.getData(this.newFilter).subscribe(
-          data =>  onComplete(data)
-      );
+  }
+  
+  _generateData(data, filter){
+      var rowLabels = this.rowLabels;
+      var colLabels = this.colLabels;
+
+
+      this.overallData = this.dataConverter._calculateColumn(data.overallData,colLabels,filter);
+      this.tableData = this.dataConverter._calculateTableData(data, rowLabels, colLabels, filter, this.keysIgnore);
+    
   }
 
-  _getCumulative (){
-    return (this.data.cumulativeData || {})
+  onFilterChanged($event){
+      this.paramsChanged.emit(this.newFilter);
   }
 
-  _calculatePercentDiff(){
-    return Math.round((this._getCumulative().againstSuccess-this._getCumulative().baseSuccess)*100)/100;
-  }
-
-
-  _keysIgnore = {
-     "SIK":['cemp', 'direct', 'unknown', 'null', 'true', 'cafe360', 'hh', '$activationsourcemodel'],
-     "TECH" :['direct', 'null'], // tech filters
-     "TECH/SIK": ['online', 'unknown'] // tech/sik filters  
-  };
-
-  _generateData(data, colLabels, filter){
-
-      // generate overall data
-      function calculateColumn(data){
-          var output = [];
-          for(var i=0;i<colLabels.length;i++){
-            var curKey = colLabels[i].key;
-            var colEntry = data[curKey];
-            if(colEntry !== undefined){
-                colEntry.baseLabel = filter.range1.label;
-                colEntry.againstLabel = filter.range2.label;
-                colEntry.key = curKey;
-            }
-            output.push(colEntry);
-          }
-          return output;
-      }
-
-      this.overallData = calculateColumn(data.overallData);
-      
-
-      // generate table data 
-      var tableData = [];
-      var allData = data.data;
-      var rowLabels = ["SIK","TECH","TECH/SIK"];
-
-      for(var i=0; i < rowLabels.length ;i++){
-
-          var rowLabel = rowLabels[i];
-          var rowOutput= {} ;
-          var rowData = allData[rowLabel];
-          rowOutput['label'] = rowLabel ;
-          rowOutput['aggMetrics'] = calculateColumn(rowData['aggMetrics']);
-          rowOutput['metrics'] = [];
-
-           for (var key in rowData.metrics) {
-              if (rowData.metrics.hasOwnProperty(key)) {
-                  var metricsEntry = rowData.metrics[key];
-
-                  //ignore some keys
-                  if(this._keysIgnore[rowLabel].indexOf(key.toLowerCase()) > -1)
-                      continue;
-
-                  var metricsOutput = {
-                       label : key,
-                       data : calculateColumn(metricsEntry)
-                  };
-                  rowOutput['metrics'].push(metricsOutput);
-              }
-           }
-
-          tableData.push(rowOutput);
-      }
-
-      this.tableData = tableData;
-  }
 
 }
 

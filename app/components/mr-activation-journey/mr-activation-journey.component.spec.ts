@@ -1,11 +1,11 @@
 /* tslint:disable:no-unused-variable */
 
 import { TestBed, async } from '@angular/core/testing';
-import { MrLegendGroupComponent } from './mr-legend-group.component';
+import { MrScorecardPageComponent } from './mr-scorecard-page.component';
 
-describe('Component: MrLegendGroup', () => {
+describe('Component: MrScorecardPage', () => {
   it('should create an instance', () => {
-    let component = new MrLegendGroupComponent();
+    let component = new MrScorecardPageComponent();
     expect(component).toBeTruthy();
   });
 });

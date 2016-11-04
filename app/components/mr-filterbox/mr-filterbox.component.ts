@@ -2,6 +2,40 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 declare var moment: any;
 
+var compareObjects = function(o1, o2){
+    for(var p in o1){
+        if(o1.hasOwnProperty(p)){
+            if(o1[p] !== o2[p]){
+                return false;
+            }
+        }
+    }
+    for(var p in o2){
+        if(o2.hasOwnProperty(p)){
+            if(o1[p] !== o2[p]){
+                return false;
+            }
+        }
+    }
+    return true;
+};
+
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+
 @Component({
   selector: 'mr-filterbox',
   templateUrl: './mr-filterbox.component.html',
@@ -12,7 +46,7 @@ export class MrFilterboxComponent implements OnInit {
 
 
   @Input() filter ;
-  @Output() filterChange:EventEmitter<any> = new EventEmitter<any>();
+  @Output('change') filterChanged:EventEmitter<any> = new EventEmitter<any>();
 
   lastFilter = {};
   
@@ -93,16 +127,19 @@ export class MrFilterboxComponent implements OnInit {
   ngDoCheck() {
       
       var cat = this.filter["category"].label;
+      var isFilterChanged = false;
+
+      if(compareObjects(this.filter,this.lastFilter) === false){
+          isFilterChanged = true;
+      }
 
       if(this.lastFilter["category"] === undefined || this.filter["category"].label !== this.lastFilter["category"].label){
           
-          this.filterChange.emit(this.filter);
           
           if(cat !== undefined){
             var length         = this.options[cat].length;
             this.filter.range1 = this.options[cat][length-2];
             this.filter.range2 = this.options[cat][length-1];
-            this.lastFilter    = JSON.parse(JSON.stringify(this.filter));
           }
           
       }
@@ -111,7 +148,29 @@ export class MrFilterboxComponent implements OnInit {
            var index = this.options[cat].indexOf(this.filter.range1);
            this.filter.range2 = this.options[cat][index];
       }
+      
+      var self = this;
+      var emitChange = function(){
+            self.filterChanged.emit(self.filter);
+      }
+
+     
+      if(isFilterChanged){
+          debounce(emitChange,300,undefined)();
+
+          var lastFilter = {};
+          for(var p in this.filter){
+            if(this.filter.hasOwnProperty(p)){
+                lastFilter[p] = this.filter[p];
+            }
+         }
+         this.lastFilter = lastFilter;
+      }
+
+
   }
+
+  
 
 
   filterCategory(category){

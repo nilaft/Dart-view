@@ -1,17 +1,64 @@
+:host{
+    display: block;
+    margin-bottom: .2em;
+}
+
+.mrfcsrow-wrp{
+
+}
+
+.mrfcsrow-wrp.is-open .mrfcsrow-arrow{
+    transform: rotate(90deg);
+}
+
+.mrfcsrow-wrp.is-open .mrfcsrow-arrow:after{
+    opacity: 1;
+}
+
 .mrfcsrow-hdr{
     display: flex;
     background: white;
-    padding: .2em .8em;
+    padding: .7em .8em;
+    cursor: pointer;
+    align-items: center
 }
+
+.mrfcsrow-arrow{
+    position: relative;
+    width: .7em;
+    height: 1em;
+    transition: 300ms ease-in-out transform;
+    transform-origin: 25% center;
+    margin-right: .8em;
+}
+
+.mrfcsrow-arrow:before ,.mrfcsrow-arrow:after {
+	left: 0%;
+	top: 50%;
+	content: " ";
+	position: absolute;
+	pointer-events: none;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: .4em 0 .4em .55em;
+    border-color: transparent transparent transparent #2C2C2C;
+	margin-top: -.4em;
+    transition : 300ms ease-in-out transform;
+}
+
+.mrfcsrow-arrow:after{
+    border-color: transparent transparent transparent #098193;
+    opacity: 0;
+    transition : 300ms ease-in-out opacity;
+}
+
+
 
 .mrfcsrow-hdrright{
     flex-grow: 1;
     display: flex;
     justify-content: space-between;
-}
-
-.mrfcsrow-hdrarrow{
-
 }
 
 .mrfcsrow-field{
@@ -50,9 +97,23 @@
 .mrfcsrow-det{
     align-items: stretch;
     margin-top: 2px;
-    display: flex;
+    transition: 300ms ease-in-out height;
+    height: 0em;
+    position: relative;
+    overflow: hidden;   
+}
+
+.mrfcsrow-wrp.is-open .mrfcsrow-det{
     height: 14.5em;
-    
+}
+
+.mrfcsrow-detslider{
+    position: absolute;
+    height:14em;
+    right:0;
+    bottom: .5em;
+    left: 0;
+    display: flex;
 }
 
 .mrfcsrow-detleft{
@@ -66,4 +127,17 @@
     background: #F7F7F7;
     flex-grow: 1;
     padding: .8em .8em;
+}
+
+::content >>> [mr-fcsrow-btns]{
+    display: flex;
+    align-items : center;
+}
+::content >>> [mr-fcsrow-btn] {
+    background :#AAAAAA;
+    padding : .2em .5em;
+    font-size: .65em;
+    text-transform: uppercase;
+    color:white;
+    margin-right: .3em;
 }

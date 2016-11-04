@@ -8,13 +8,13 @@ export class AuthMechanismService {
   constructor(private http:Http) { }
   
   getFailureReasons(filter) : Observable<any>{
-    return this.http.get('../../assets/json/authfailures.json')
+    return this.http.get('/assets/json/authfailures.json')
           .map(res => res.json())
         
   }
 
   getData(filter) : Observable<any>{
-  return this.http.get('../../assets/json/authdatamatric.json')
+  return this.http.get('/assets/json/authdatamatric.json')
           .map(res => res.json())
         
   }

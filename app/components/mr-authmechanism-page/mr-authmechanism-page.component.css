@@ -10,13 +10,13 @@
 
 mr-pdf-exporter{
     position: absolute;
-    right: .5em;
+    right: 1em;
     top: .1em;
     cursor: pointer;
 }
 
 mr-pdf-exporter img {
-    width: 1.5em;
+    width: 1.2em;
 }
 
 mr-pagestep-indicator{

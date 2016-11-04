@@ -1,133 +1,22 @@
 <!--FILTER-->
-<mr-filterbox [(filter)]="newFilter"></mr-filterbox>
+<div class="mrglobal-shadow">
+    <mr-filterbox [(filter)]="newFilter" (change)="onFilterChanged($event)" ></mr-filterbox>
 
-
-<!--SUMMARY (CUMULATIVE) VIEW-->
-<div class="mrscorepage-sum" >
-    <div class="mrscorepage-sum-col">
-        <div class="mrscorepage-sum-title">success</div>
-        <div class="mrscorepage-sum-percent" [style.opacity]="data.cumulativeData?1:0">
-            <div class="mrscorepage-sum-percentval" [style.color]="'#FD1001'">{{_getCumulative().againstSuccess}}%</div>
-            <div class="mrscorepage-sum-percentval" [style.color]="'#FBAB32'" [style.opacity]="_getCumulative().againstSuccess<25?_getCumulative().againstSuccess/100*4:1">{{_getCumulative().againstSuccess}}%</div>
-            <div class="mrscorepage-sum-percentval" [style.color]="'#3CB506'" [style.opacity]="_getCumulative().againstSuccess>75?(_getCumulative().againstSuccess/100-.75)*4:0">{{_getCumulative().againstSuccess}}%</div>
-            <mr-percent-view [value]="_calculatePercentDiff()"></mr-percent-view>
-        </div>
-        <div class=" mrscorepage-gradient-wrp">
-            <div class=" mrscorepage-gradient"></div>
-            <div class=" mrscorepage-gradient-label">
-                <div>0%</div>
-                <div>95%</div>
-            </div>
-
-        </div>
-
-    </div>
-    <div class="mrscorepage-sum-col mrscorepage-sum-centercol" [style.opacity]="data.cumulativeData?1:0">
-         <div class="mrscorepage-sum-scol">
-             <div class="mrscorepage-sum-title"></div>
-             <div class="mrscorepage-sum-inforow">
-                <span class="mrscorepage-sum-inforow-label">{{curFilter.range1?.label}} :</span>
-            </div>
-            <div class="mrscorepage-sum-inforow">
-                <span class="mrscorepage-sum-inforow-label">{{curFilter.range2?.label}} :</span>
-            </div>
-         </div>
-
-         <div class="mrscorepage-sum-scol">
-             <div class="mrscorepage-sum-title">total attempts</div>
-             <div class="mrscorepage-sum-inforow">
-                 <mr-number-formatter [input]="_getCumulative().againstAttempts"></mr-number-formatter>
-            </div>
-            <div class="mrscorepage-sum-inforow">
-                <mr-number-formatter [input]="_getCumulative().baseAttempts"></mr-number-formatter>
-            </div>
-         </div>
-
-         <div class="mrscorepage-sum-scol">
-             <div class="mrscorepage-sum-title">success attempts</div>
-             <div class="mrscorepage-sum-inforow">
-                 <mr-number-formatter [input]="_getCumulative().againstSuccessfulAttempts"></mr-number-formatter>
-             </div>
-             <div class="mrscorepage-sum-inforow">
-                 <mr-number-formatter [input]="_getCumulative().baseSuccessfulAttempts"></mr-number-formatter>
-             </div>
-         </div>
-
-    </div>
-    <div class="mrscorepage-sum-col" [style.opacity]="data.cumulativeData?1:0">
-         <div class="mrscorepage-sum-title">aaa</div>
-         <div class="mrscorepage-sum-inforow">{{_getCumulative().againstAaa}}</div>
-         <div class="mrscorepage-sum-inforow">{{_getCumulative().baseAaa}}</div>
-
-    </div>
-    <div class="mrscorepage-sum-col">
-    </div>
-</div>
-
-
-<!--TABLE HDR-->
-<div class="mrscorepage-hdr">
-    <div class="mrscorepage-colhdr"></div>
-    <div class="mrscorepage-colcell">
-        <div *ngFor="let col of labelsArr;let i=index">{{col.label}}</div>
-        <div></div>
-    </div>
-</div>
-
-
-<!--OVERALLL-->
-<div class="mrscorepage-overall">
-    <div class="mrscorepage-row">
-        <div class="mrscorepage-colhdr">
-            <mr-tablecol-hdr >Overall</mr-tablecol-hdr>
-        </div>
-        <div class="mrscorepage-rowscroll-wrp" >
-            <div class="mrscorepage-rowscroll">
-                <div  *ngFor="let item of overallData; let i=index" class="mrscorepage-cell">
-                    <mr-scorecard-cell [data]="item"></mr-scorecard-cell>
-                </div>
-            </div>
+    <div class="mrscorepage-overall ">
+        <div *ngFor="let item of overallData;let i=index">
+            <div class="mrscorepage-overalllabel">{{item.key}}</div>
+            <mr-scorecard-cell [data]="item" [show-aaa]="false" large></mr-scorecard-cell>
         </div>
     </div>
 </div>
 
 
-<!--TABLE ROWS-->
-<div class="mrscorepage-rowgrp" *ngFor="let rowData of tableData; let i=index" >
-    <mr-row-bookmark label="fulfilment" bgcolor="#2D9CF2" >
-        <div class="mrscorepage-row" style="background:#EDEDED;">
-            <div class="mrscorepage-colhdr">
-                <mr-tablecol-hdr >{{rowData.label}}</mr-tablecol-hdr>
-            </div>
-            <div class="mrscorepage-rowscroll-wrp" >
-                <div class="mrscorepage-rowscroll">
-                    <div  *ngFor="let item of rowData.aggMetrics; let i=index" class="mrscorepage-cell">
-                        <mr-scorecard-cell [data]="item" ></mr-scorecard-cell>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    </mr-row-bookmark>
 
-    <mr-row-bookmark label="tools" bgcolor="#C197FF" >
-        <div class="mrscorepage-row"  *ngFor="let toolsData of rowData.metrics; let i=index">
-            <div class="mrscorepage-colhdr">
-                <mr-tablecol-hdr right-align>{{toolsData.label}}</mr-tablecol-hdr>
-            </div>
-            <div class="mrscorepage-rowscroll-wrp" >
-                <div class="mrscorepage-rowscroll">
-                    <div  *ngFor="let item of toolsData.data; let i=index"  class="mrscorepage-cell">
-                        <mr-scorecard-cell [data]="item"></mr-scorecard-cell>
-                    </div>
-                </div>
-            </div>
-        </div>
-       
-    </mr-row-bookmark>
-
+<div class="mrscorepage-content" *ngFor="let rowData of tableData; let i=index" class="mrglobal-shadow mrscorepage-row">
+    <!--TABLE HDR-->
+<mr-scorecard-hdrrow [label]="rowData.label" [data]="colLabels" ></mr-scorecard-hdrrow>
+    
+    <mr-scorecard-row [label]="'overall'" [data]="rowData.aggMetrics" [highlight]="true" show-bg [show-aaa]="false" class="mrscorepage-rowoverall"></mr-scorecard-row>
+    <mr-scorecard-row *ngFor="let toolsData of rowData.metrics; let i=index" [label]="toolsData.label" [data]="toolsData.data" [show-aaa]="false"></mr-scorecard-row>
 </div>
-
-
-
-

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter} from '@angular/core';
+import {FCSService} from '../../services/fcs.service'
 
 @Component({
   selector: 'mr-fcsdetail-page',
@@ -8,6 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class MrFcsdetailPageComponent implements OnInit {
   
   outputData ;
+  filter:any = {};
+  searchText = '';
+  pagesList = [];
+  curPageNo = 1;
+
+  allCorps = [
+    {
+      label :"Florida Corp",
+      value :"Florida Corp"
+
+    }
+  ];
+
 
   labels = {
     "trackingId"        : "TR ID",
@@ -33,95 +47,6 @@ export class MrFcsdetailPageComponent implements OnInit {
     
   };
 
-  data =  {
-      totalPages : 20,
-      curPage : 1,
-      results: [
-        [
-          {
-            "key":"id",
-            "value": "57c4cbc324a67b001dd3b592"
-          },
-          {
-            "key":"trackingId",
-            "value": "455655718"
-          },
-          {
-            "key":"cmMacAddress",
-            "value": "c4:27:95:50:85:01"
-          },
-          {
-            "key":"accountNumber",
-            "value": "8396600090721244"
-          },
-          {
-            "key":"rdu",
-            "value": "rdu03.g.comcast.net"
-          },
-          {
-            "key":"action",
-            "value": "START"
-          },
-          {
-            "key":"checkBlackList",
-            "value": "N"
-          },
-          {
-            "key":"intendedCMTS",
-            "value": "cbr02.lookoutrd.ar.lrock.comcast.net"
-          },
-          {
-            "key":"giAddress",
-            "value": "2001:0558:4062:0011:0000:0000:0000:0001"
-          },
-          {
-            "key":"ipControlCmtsName",
-            "value": "acr01.bartlett.ga.savannah.comcast.net"
-          },
-          {
-            "key":"cmtsStatus",
-            "value": "MISMATCH"
-          },
-          {
-            "key":"headEndStatus",
-            "value": "HeadEnd_MISMATCH"
-          },
-          {
-            "key":"blackListStatus",
-            "value": "IGNORE"
-          },
-          {
-            "key":"retryCount",
-            "value": "0"
-          },
-        
-          {
-            "key":"creationDate",
-            "value": "2016-08-29T23:56:50.963Z"
-          },
-          {
-            "key":"createdBy",
-            "value": "PS"
-          },
-          {
-            "key":"lastUpdatedDate",
-            "value": "2016-08-29T23:56:51.580"
-          },
-          {
-            "key":"lastUpdatedBy",
-            "value": "PS"
-          },
-          {
-            "key":"status",
-            "value": "COMPLETED"
-          },
-          {
-            "key":"giAddressSource",
-            "value": "NETREC"
-          }
-        ]
-      ]
-  };
 
   _headerFields = ["trackingId", "accountNumber", "cmMacAddress", "lastUpdatedDate","rdu"];
 
@@ -132,12 +57,45 @@ export class MrFcsdetailPageComponent implements OnInit {
   _btnFields = ["status", "cmtsStatus","headEndStatus","blackListStatus","checkBlackList"];
 
 
-  constructor() { }
+  constructor(private dataService:FCSService) { }
 
 
   ngOnInit() {
+      this.filter.corp = this.allCorps[0];
+      this.fetch();
+      
+    
+  }
 
-    this.outputData = this._formatData(this.data.results);
+  ngOnChanges(changes){
+      console.log(changes.curPageNo);
+      if(changes.curPageNo){
+          this.fetch()
+      }
+  } 
+
+  fetch(){
+      this.dataService.getFCSDetail({
+          q : this.searchText,
+          pageno : this.curPageNo
+
+      }).subscribe(
+          data =>  {
+            this.outputData = this._formatData(data.results.results);
+            this.pagesList = [];
+            for(var i=1; i<= data.results.totalPages; i++){
+                this.pagesList.push(i);
+            }
+
+            this.curPageNo = data.results.curPage;
+
+            
+          }
+      );
+  }
+
+  filterCorps(item){
+      this.filter.corp = item;
   }
 
   _formatData(data){
@@ -185,6 +143,13 @@ export class MrFcsdetailPageComponent implements OnInit {
     }
 
     return output;
+  }
+
+
+  onSearch($event){
+      this.curPageNo = 1;
+      this.searchText = $event.target.value;
+      this.fetch();
   }
 
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import {jsPDF} from 'jspdf.js';
-
 
 declare var jsPDF:any;
 declare var $:any;
