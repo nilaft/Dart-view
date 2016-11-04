@@ -1,0 +1,30 @@
+<div class="mrfilterbox-category">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1">
+            {{filter.category?.label}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a  *ngFor="let item of filterCategorys; let i=index"  class="dropdown-item" (click)="filterCategory(item)" >{{item?.label}}</a>
+        </div>
+    </div>
+</div>
+
+<div class="mrfilterbox-range">
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1">
+            {{filter.range1?.label}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a  *ngFor="let item of options[filter.category?.label]; let i=index"  class="dropdown-item" (click)="selectRange1(item)" >{{item?.label}}</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu1">
+            {{filter.range2?.label}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <a  *ngFor="let item of options[filter.category?.label]; let i=index"  class="dropdown-item" (click)="selectRange2(item)" >{{item?.label}}</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="mrscorecell-wrp" *ngIf="data" [class.is-showaaa]="showAaa">
+    <div class="mrscorecell-col mrscorecell-col1">
+        <div class="mrscorecell-firstrow mrscorecell-mainval"><span>{{mainVal}}</span></div>
+        <div class="mrscorecell-label">{{data?.againstLabel}}</div>
+        <div class="mrscorecell-label">{{data?.baseLabel}}</div>
+    </div>
+
+    <div class="mrscorecell-col mrscorecell-col2">
+        <div class="mrscorecell-firstrow mrscorecell-percentview">
+            <mr-percent-view [value]="_calculatePercentDiff()"></mr-percent-view>
+        </div>
+        
+        <div class="mrscorecell-subval"> <mr-number-formatter [input]="data.againstAttempts"></mr-number-formatter></div>
+        <div class="mrscorecell-subval"><mr-number-formatter [input]="data.baseAttempts"></mr-number-formatter></div>
+    </div>
+
+    <div class="mrscorecell-col mrscorecell-col3"  *ngIf="showAaa">
+        <div class="mrscorecell-firstrow"></div>
+        <div class="mrscorecell-subval">{{data?.againstAaa}}</div>
+        <div class="mrscorecell-subval">{{data?.baseAaa}}</div>
+    </div>
+</div>

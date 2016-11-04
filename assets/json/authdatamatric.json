@@ -1,0 +1,89 @@
+{
+  "success": true,
+  "results": {
+    "data": {
+      "ONLINE (SUSI)": {
+        "SMS VERIFICATION": {
+          "baseAttempts": 1382610,
+          "baseSuccessfulAttempts": 1382605,
+          "baseFailedAttempts": 0,
+          "baseSuccess": 0,
+          "baseCaptiveRepeatedAttemptsPer": 0,
+          "againstAttempts": 1382615,
+          "againstSuccessfulAttempts": 1382605,
+          "againstFailedAttempts": 0,
+          "againstSuccess": 0,
+          "againstCaptiveRepeatedAttemptsPer": 0,
+          "variance": 0
+        },
+        "ACCOUNT NO/TN": {
+          "baseAttempts": 1382605,
+          "baseSuccessfulAttempts": 1382601,
+          "baseFailedAttempts": 0,
+          "baseSuccess": 0,
+          "baseCaptiveRepeatedAttemptsPer": 0,
+          "againstAttempts": 1382610,
+          "againstSuccessfulAttempts": 1382605,
+          "againstFailedAttempts": 0,
+          "againstSuccess": 0,
+          "againstCaptiveRepeatedAttemptsPer": 0,
+          "variance": 0
+        },
+        "UID/PASSWORD": {
+          "baseAttempts": 1382615,
+          "baseSuccessfulAttempts": 1382605,
+          "baseFailedAttempts": 0,
+          "baseSuccess": 0,
+          "baseCaptiveRepeatedAttemptsPer": 0,
+          "againstAttempts": 1382605,
+          "againstSuccessfulAttempts": 1382601,
+          "againstFailedAttempts": 0,
+          "againstSuccess": 0,
+          "againstCaptiveRepeatedAttemptsPer": 0,
+          "variance": 0
+        }
+      },
+      "ONLINE (CAAP)": {
+        "SMS VERIFICATION": {
+          "baseAttempts": 1382610,
+          "baseSuccessfulAttempts": 1382605,
+          "baseFailedAttempts": 0,
+          "baseSuccess": 0,
+          "baseCaptiveRepeatedAttemptsPer": 0,
+          "againstAttempts": 1382615,
+          "againstSuccessfulAttempts": 1382605,
+          "againstFailedAttempts": 0,
+          "againstSuccess": 0,
+          "againstCaptiveRepeatedAttemptsPer": 0,
+          "variance": 0
+        },
+        "ACCOUNT NO/TN": {
+          "baseAttempts": 1382605,
+          "baseSuccessfulAttempts": 1382601,
+          "baseFailedAttempts": 0,
+          "baseSuccess": 0,
+          "baseCaptiveRepeatedAttemptsPer": 0,
+          "againstAttempts": 1382610,
+          "againstSuccessfulAttempts": 1382605,
+          "againstFailedAttempts": 0,
+          "againstSuccess": 0,
+          "againstCaptiveRepeatedAttemptsPer": 0,
+          "variance": 0
+        },
+        "UID/PASSWORD": {
+          "baseAttempts": 1382615,
+          "baseSuccessfulAttempts": 1382605,
+          "baseFailedAttempts": 0,
+          "baseSuccess": 0,
+          "baseCaptiveRepeatedAttemptsPer": 0,
+          "againstAttempts": 1382605,
+          "againstSuccessfulAttempts": 1382601,
+          "againstFailedAttempts": 0,
+          "againstSuccess": 0,
+          "againstCaptiveRepeatedAttemptsPer": 0,
+          "variance": 0
+        }
+      }
+    }
+  }
+}

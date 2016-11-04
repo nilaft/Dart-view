@@ -1,0 +1,55 @@
+:host{
+    position: relative;
+    display: block;
+    color: rgb(121,179,77);
+}
+
+.mrpercentview{
+    display: flex;
+    align-items: center;
+    line-height: 1;
+}
+
+
+.mrpercentview-val {
+    font-size: .7em;
+    font-weight: 300;
+}
+
+.mrpercentview-sign{
+    font-size: .7em;
+    font-weight: 300;
+    padding-right: .1em
+}
+.mrpercentview.is-negative {
+    color: rgb(253,19,0);
+}
+
+
+.mrpercentview-arrow{
+    position: relative;
+    width: 0.7em;
+    display: inline-block;
+    height:.7em;
+}
+
+.mrpercentview-arrow:after {
+	top: 10%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+
+	border-color: rgba(136, 183, 213, 0);
+	border-bottom-color:  #7ab34e;
+	border-width: .22em;
+}
+
+.mrpercentview.is-negative .mrpercentview-arrow:after{
+    border-top-color: rgb(253,19,0);
+    border-bottom-color: transparent;
+    top: 43%;
+}
+

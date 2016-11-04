@@ -1,0 +1,87 @@
+:host{
+    width: 13em;
+    font-size: .8em;
+    display: block;
+}
+
+:host([large]){
+    width: 15em;
+}
+
+:host([large]) .mrscorecell-mainval span{
+    font-size: 1.5em;
+}
+
+:host([large]) .mrscorecell-firstrow {
+    height: 1.8em !important;
+}
+
+:host([large]) .mrscorecell-col1{
+    width: 55%;
+}
+
+.mrscorecell-col .mrscorecell-firstrow{
+    font-size: 1.5em ;
+    height: 1.2em;
+    margin-top: .3em;
+    margin-bottom: .2em;
+}
+
+.mrscorecell-wrp{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.mrscorecell-col{
+    padding-right: .5em;
+}
+
+.mrscorecell-col:last-child{
+    padding-right: 0;   
+}
+
+.mrscorecell-col1{
+    width: 46%;
+}
+
+.mrscorecell-col2{
+    flex-grow: 1;
+}
+
+.mrscorecell-col3{
+    width: 2em;
+}
+
+
+.mrscorecell-col > div{
+    margin-top: .5em;
+    font-size: .8em ;
+}
+
+
+
+.mrscorecell-percentview{
+    display: flex;
+    align-items: flex-end;
+}
+
+.mrscorecell-label{
+    color: rgb(154,154,154);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.mrscorecell-mainval{
+    color: rgb(84,84,84);
+    font-weight: 600;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+}
+
+.mrscorecell-subval{
+     color: rgb(140,140,140);
+     text-align: right;
+}

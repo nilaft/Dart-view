@@ -1,0 +1,22 @@
+<!--FILTER-->
+<div class="mrglobal-shadow">
+    <mr-filterbox [(filter)]="newFilter" (change)="onFilterChanged($event)" ></mr-filterbox>
+
+    <div class="mrscorepage-overall ">
+        <div *ngFor="let item of overallData;let i=index">
+            <div class="mrscorepage-overalllabel">{{item.key}}</div>
+            <mr-scorecard-cell [data]="item" [show-aaa]="false" large></mr-scorecard-cell>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="mrscorepage-content" *ngFor="let rowData of tableData; let i=index" class="mrglobal-shadow mrscorepage-row">
+    <!--TABLE HDR-->
+<mr-scorecard-hdrrow [label]="rowData.label" [data]="colLabels" ></mr-scorecard-hdrrow>
+    
+    <mr-scorecard-row [label]="'overall'" [data]="rowData.aggMetrics" [highlight]="true" show-bg [show-aaa]="false" class="mrscorepage-rowoverall"></mr-scorecard-row>
+    <mr-scorecard-row *ngFor="let toolsData of rowData.metrics; let i=index" [label]="toolsData.label" [data]="toolsData.data" [show-aaa]="false"></mr-scorecard-row>
+</div>

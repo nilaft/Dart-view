@@ -1,0 +1,61 @@
+
+.mrscorepage-overall{
+    padding: .5em 1em;
+    display: flex;
+    background: white;
+
+}
+
+
+.mrscorepage-overall mr-scorecard-cell{
+    margin-top: -.8em;
+}
+
+.mrscorepage-overall>div{
+    margin-right: 3em;
+}
+
+.mrscorepage-overalllabel{
+    font-size: .8em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.mrscorepage-row{
+    margin: 1em 0;
+}
+
+mr-scorecard-hdrrow{
+    margin-bottom: .2em;
+}
+
+mr-scorecard-row >>> mr-scorecard-cell {
+    width:100%;
+    padding: 0 .5em;
+}
+
+mr-scorecard-row >>>  .mrscorerow-cell,   mr-scorecard-hdrrow >>> .mrscorehdrow-colcell div{
+    width:25% !important;
+}
+
+mr-scorecard-row >>> .mrscorerow-colhdr,  mr-scorecard-hdrrow >>> .mrscorehdrow-colhdr{
+    width: 20% !important;
+}
+
+
+mr-scorecard-hdrrow >>> .mrscorehdrow-hdr{
+    box-shadow: none;
+}
+
+
+mr-scorecard-hdrrow >>> .mrscorehdrow-colhdr{
+    padding: .5em 1em;
+    font-weight: 600;
+    color: #545454;
+}
+
+.mrscorepage-rowoverall >>> mr-tablecol-hdr{
+    font-size: .9em;
+}
+
+

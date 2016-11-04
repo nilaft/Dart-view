@@ -1,0 +1,23 @@
+<div style="width: 100%;
+    height: 100vh;
+    background: #EEEEEE;">
+  <div style="height:50px;background:#6AD3E3"></div>
+  <div >
+    <div  style="width: 200px;background: #2C2C2C;height: calc(100vh - 50px); color:white;padding-top:1em; float:left">
+         <div (click)="tab=1" style="cursor:pointer;padding:.5em 1em;">Scorecard</div>
+         <div (click)="tab=2" style="cursor:pointer;padding:.5em 1em;">Sales</div>
+         <div (click)="tab=3" style="cursor:pointer;padding:.5em 1em;">Geo View</div>
+         <div (click)="tab=4" style="cursor:pointer;padding:.5em 1em;">Device View</div>
+         <div (click)="tab=5" style="cursor:pointer;padding:.5em 1em;">Auth</div>
+         <div (click)="tab=6" style="cursor:pointer;padding:.5em 1em;">FCS</div>
+    </div>
+    <div style="display:block;overflow: scroll;height: calc(100vh - 50px);">
+      <mr-activation-journey  *ngIf="tab==1"></mr-activation-journey>
+      <mr-activation-sales  *ngIf="tab==2"></mr-activation-sales>
+      <mr-activation-geoview  *ngIf="tab==3"></mr-activation-geoview>
+      <mr-activation-deviceview  *ngIf="tab==4"></mr-activation-deviceview>
+      <mr-authmechanism-page  *ngIf="tab==5"></mr-authmechanism-page>
+      <mr-fcsdetail-page  *ngIf="tab==6" ></mr-fcsdetail-page>
+    </div>
+  </div>
+</div>
