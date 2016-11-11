@@ -1,19 +1,34 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import {ActivationService} from '../../services/activation.service';
 import {ActivationDataConverterService} from '../../services/activation-data-converter.service';
+import {FilterService} from '../../services/filter.service';
+import {StickyheaderService} from '../../services/stickyheader.service';
+import { slideIn } from '../../animations/page.animation';
+import {MrPdfExporterComponent} from '../mr-pdf-exporter/mr-pdf-exporter.component';
+
 
 @Component({
   selector: 'mr-activation-journey',
   templateUrl: './mr-activation-journey.component.html',
-  styleUrls: ['./mr-activation-journey.component.css']
+  styleUrls: ['./mr-activation-journey.component.css'],
+  host:{
+    '(@slideIn.start)': 'pageEnterStarted($event)',
+    '(@slideIn.done)': 'pageEnterCompleted($event)',
+    '[@slideIn]' : 'true'
+  },
+  animations : [slideIn]
 })
 export class MrActivationJourneyComponent implements OnInit {
-   newFilter = {};
-   curFilter = {};
    data:any = {};
-
    tableData:any = [];
    overallData:any = [];
+   filter = {};
+   fetchRequest;
+   
+   @ViewChild('sticky') stickyRef;
+   @ViewChild(MrPdfExporterComponent) pdfExporter: MrPdfExporterComponent;
+   @ViewChild('container') container;
+
     
    labelsArr = [
       {
@@ -34,30 +49,48 @@ export class MrActivationJourneyComponent implements OnInit {
       }
   ];
 
-  constructor(private dataService:ActivationService, private dataConverter:ActivationDataConverterService) { }
+  pageEnterStarted() {
+    // console.log("start")
+     }
+  pageEnterCompleted() {
+      // console.log("Complete")
+     }
+
+  constructor(private dataService : ActivationService, 
+            private dataConverter : ActivationDataConverterService, 
+            private filterService : FilterService,
+            private stickyHeader  : StickyheaderService) {
+      this.filter = filterService.filter;
+   }
 
   ngOnInit() {
     this._fetchData();
 
   }
 
-  ngOnChanges(changes){
-      console.log(changes);
-      if(changes.newFilter){
-          console.log("HHHH");
-         
-      }
+  ngAfterViewInit(){
+      
+  }
+
+  _exportToPdf(){
+        this.pdfExporter.convert(this.container.nativeElement,'activationchannel.pdf','#EEEEEE');
   }
 
   _fetchData(){
     
     var onComplete = (data)=>{
       this.data = data.results;
-      this._generateData(this.data,this.newFilter);
-      this.curFilter = JSON.parse(JSON.stringify(this.newFilter));
+      this._generateData(this.data,this.filter);
+      requestAnimationFrame(()=>{
+          this.stickyHeader.sticky(this.stickyRef.nativeElement);
+      });
     };
     
-    this.dataService.getActivationJourneyData(this.newFilter).subscribe(
+    if(this.fetchRequest){
+        this.fetchRequest.unsubscribe();
+    }
+
+    this.fetchRequest = this.dataService.getActivationJourneyData(this.filter).subscribe(
           data =>  onComplete(data)
       );
   }
@@ -85,6 +118,10 @@ export class MrActivationJourneyComponent implements OnInit {
     
   }
 
+  ngOnDestroy(){
+     this.fetchRequest.unsubscribe();
+     this.stickyHeader.remove(this.stickyRef.nativeElement);
+  }
 
 }
 

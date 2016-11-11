@@ -1,6 +1,14 @@
 :host{
-    padding: 1em;
     display: block;
+}
+
+.mractdevice-rdk{
+    margin-top: 3em;
+}
+
+.mractdevice-cellrow{
+    display: flex;
+    align-items: flex-end;
 }
 
 .mractdevice-content >>>  mr-scorecard-hdrrow .mrscorehdrow-colhdr{
@@ -12,14 +20,52 @@
     line-height: 1.7em;
 }
 
-.mractdevice-content >>> mr-scorecard-hdrrow .mrscorehdrow-colcell div {
+.mractdevice-device >>> mr-scorecard-hdrrow .mrscorehdrow-hdr .mrscorehdrow-colcell div {
     width: 33.333% !important;
 }
 
-.mractdevice-content .mrscorerow-colhdr{
+.mractdevice-device .mrscorerow-colhdr{
         width: 20%;
 }
 
-.mractdevice-content .mrscorerow-cell{
+.mractdevice-device .mrscorerow-cell{
         width: 33.333% !important;
+}
+
+.mractdevice-rdk >>>mr-scorecard-hdrrow  .mrscorehdrow-hdr .mrscorehdrow-colcell  div{
+    width: 33.333% !important;
+}
+
+.mractdevice-rdk >>> mr-scorecard-hdrrow  .mrscorehdrow-hdr .mrscorehdrow-colcell  div:last-child{
+    display:none !important;
+}
+
+.mractdevice-rdk >>> mr-scorecard-hdrrow .mrscorehdrow-colhdr{
+        width: 40% !important;
+}
+
+.mractdevice-rdk .mrscorerow-colhdr{
+    width: 40%;
+}
+.mractdevice-rdk .mrscorerow-cell{
+        width: 33.333% !important;
+}
+
+
+/*MRSticky*/
+
+.mrsticky.mrscorepage-overall{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.mrsticky mr-scorecard-cell >>> .mrscorecell-firstrow{
+    height: 1.3em !important;
+}
+.mrsticky mr-scorecard-cell >>> .mrscorecell-mainval span{
+    font-size: 1em !important;
+}
+
+.mrsticky mr-scorecard-cell >>> .mrscorecell-label{
+    margin-top: .2em !important;
 }

@@ -1,16 +1,21 @@
-import { Component, OnInit, ViewChild , Input,ChangeDetectionStrategy} from '@angular/core';
+import { Component, OnInit, ViewChild , Input} from '@angular/core';
 import {AuthMechanismService} from '../../services/authmechanism.service';
+import { FilterService } from '../../services/filter.service'
 
 import {MrPdfExporterComponent} from '../mr-pdf-exporter/mr-pdf-exporter.component';
+
+import { slideIn } from '../../animations/page.animation';
 
 @Component({
   selector: 'mr-authmechanism-page',
   templateUrl: './mr-authmechanism-page.component.html',
   styleUrls: ['./mr-authmechanism-page.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  host:{
+    '[@slideIn]' : 'true'
+  },
+  animations : [slideIn]
   
 })
-
 
 export class MrAuthmechanismPageComponent implements OnInit {
     @ViewChild(MrPdfExporterComponent) pdfExporter: MrPdfExporterComponent;
@@ -23,12 +28,6 @@ export class MrAuthmechanismPageComponent implements OnInit {
     
     calculatedFailureReasons:any = {};
 
-
-     pageLabels = [
-       "provision","initiate","authencate","activate","customize"
-     ]
-  
-  
 
     toolsList = [
         {
@@ -60,20 +59,24 @@ export class MrAuthmechanismPageComponent implements OnInit {
 
    
 
-    selectedFilter = {
-    
-    };
+    filter ;
 
    
 
-    constructor(private dataService:AuthMechanismService) { }
+    constructor(private dataService:AuthMechanismService, private filterService:FilterService) {
+        this._setFilter();
+    } 
+   
 
     ngOnInit(){
         this._fetchData();
     }
 
     ngOnChanges(changes) {
-      
+    }
+
+    _setFilter(){
+        this.filter = JSON.parse(JSON.stringify(this.filterService.filter)); 
     }
 
    _generateFailureReasons(){
@@ -87,15 +90,16 @@ export class MrAuthmechanismPageComponent implements OnInit {
         var onComplete = (data)=>{
             this.data = data.results;
             this._getSummaryData(this.data);
-            // this.curFilter = JSON.parse(JSON.stringify(this.newFilter));
+            this._setFilter();
+            
         };
         
-        this.dataService.getData(this.selectedFilter).subscribe(
+        this.dataService.getData(this.filter).subscribe(
             data =>  onComplete(data)
         );
 
 
-        this.dataService.getFailureReasons(this.selectedFilter).subscribe(
+        this.dataService.getFailureReasons(this.filter).subscribe(
             data =>{
                 this.failuresReasonsData = data.results;
                 this._generateFailureReasons();

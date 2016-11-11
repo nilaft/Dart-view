@@ -1,103 +1,106 @@
-<!--FILTER-->
-<mr-filterbox [(filter)]="newFilter"></mr-filterbox>
+<div #container > 
+    <mr-pdf-exporter (click)="_exportToPdf()"></mr-pdf-exporter>
+    <mr-pdf-template title="Activation Channel">
+        <!--SUMMARY (CUMULATIVE) VIEW-->
+        <div class="mrglobal-shadow" #sticky mrpdfexporter-block>
+            <div class="mractjourney-sum" >
+                <div class="mractjourney-sum-col">
+                    <div class="mractjourney-sum-title">success</div>
+                    <div class="mractjourney-sum-percent" [style.opacity]="data.cumulativeData?1:0">
+                        <div class="mractjourney-sum-percentval" [style.color]="'#FD1001'">{{_getCumulative().againstSuccess}}%</div>
+                        <div class="mractjourney-sum-percentval" [style.color]="'#FBAB32'" [style.opacity]="_getCumulative().againstSuccess<25?_getCumulative().againstSuccess/100*4:1">{{_getCumulative().againstSuccess}}%</div>
+                        <div class="mractjourney-sum-percentval" [style.color]="'#3CB506'" [style.opacity]="_getCumulative().againstSuccess>75?(_getCumulative().againstSuccess/100-.75)*4:0">{{_getCumulative().againstSuccess}}%</div>
+                        <mr-percent-view [value]="_calculatePercentDiff()"></mr-percent-view>
+                    </div>
+                    <div class=" mractjourney-gradient-wrp">
+                        <div class=" mractjourney-gradient"></div>
+                        <div class=" mractjourney-gradient-label">
+                            <div>0%</div>
+                            <div>95%</div>
+                        </div>
 
+                    </div>
 
-<!--SUMMARY (CUMULATIVE) VIEW-->
-<div class="mractjourney-sum" >
-    <div class="mractjourney-sum-col">
-        <div class="mractjourney-sum-title">success</div>
-        <div class="mractjourney-sum-percent" [style.opacity]="data.cumulativeData?1:0">
-            <div class="mractjourney-sum-percentval" [style.color]="'#FD1001'">{{_getCumulative().againstSuccess}}%</div>
-            <div class="mractjourney-sum-percentval" [style.color]="'#FBAB32'" [style.opacity]="_getCumulative().againstSuccess<25?_getCumulative().againstSuccess/100*4:1">{{_getCumulative().againstSuccess}}%</div>
-            <div class="mractjourney-sum-percentval" [style.color]="'#3CB506'" [style.opacity]="_getCumulative().againstSuccess>75?(_getCumulative().againstSuccess/100-.75)*4:0">{{_getCumulative().againstSuccess}}%</div>
-            <mr-percent-view [value]="_calculatePercentDiff()"></mr-percent-view>
-        </div>
-        <div class=" mractjourney-gradient-wrp">
-            <div class=" mractjourney-gradient"></div>
-            <div class=" mractjourney-gradient-label">
-                <div>0%</div>
-                <div>95%</div>
+                </div>
+                <div class="mractjourney-sum-col mractjourney-sum-centercol" [style.opacity]="data.cumulativeData?1:0">
+                    <div class="mractjourney-sum-scol">
+                        <div class="mractjourney-sum-title"></div>
+                        <div class="mractjourney-sum-inforow">
+                            <span class="mractjourney-sum-inforow-label">{{filter.range1?.label}} :</span>
+                        </div>
+                        <div class="mractjourney-sum-inforow">
+                            <span class="mractjourney-sum-inforow-label">{{filter.range2?.label}} :</span>
+                        </div>
+                    </div>
+
+                    <div class="mractjourney-sum-scol">
+                        <div class="mractjourney-sum-title">total attempts</div>
+                        <div class="mractjourney-sum-inforow">
+                            <mr-number-formatter [input]="_getCumulative().againstAttempts"></mr-number-formatter>
+                        </div>
+                        <div class="mractjourney-sum-inforow">
+                            <mr-number-formatter [input]="_getCumulative().baseAttempts"></mr-number-formatter>
+                        </div>
+                    </div>
+
+                    <div class="mractjourney-sum-scol">
+                        <div class="mractjourney-sum-title">success attempts</div>
+                        <div class="mractjourney-sum-inforow">
+                            <mr-number-formatter [input]="_getCumulative().againstSuccessfulAttempts"></mr-number-formatter>
+                        </div>
+                        <div class="mractjourney-sum-inforow">
+                            <mr-number-formatter [input]="_getCumulative().baseSuccessfulAttempts"></mr-number-formatter>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="mractjourney-sum-col" [style.opacity]="data.cumulativeData?1:0">
+                    <div class="mractjourney-sum-title">aaa</div>
+                    <div class="mractjourney-sum-inforow">{{_getCumulative().againstAaa}}</div>
+                    <div class="mractjourney-sum-inforow">{{_getCumulative().baseAaa}}</div>
+
+                </div>
+                <div class="mractjourney-sum-col">
+                </div>
             </div>
 
         </div>
 
-    </div>
-    <div class="mractjourney-sum-col mractjourney-sum-centercol" [style.opacity]="data.cumulativeData?1:0">
-         <div class="mractjourney-sum-scol">
-             <div class="mractjourney-sum-title"></div>
-             <div class="mractjourney-sum-inforow">
-                <span class="mractjourney-sum-inforow-label">{{curFilter.range1?.label}} :</span>
-            </div>
-            <div class="mractjourney-sum-inforow">
-                <span class="mractjourney-sum-inforow-label">{{curFilter.range2?.label}} :</span>
-            </div>
-         </div>
 
-         <div class="mractjourney-sum-scol">
-             <div class="mractjourney-sum-title">total attempts</div>
-             <div class="mractjourney-sum-inforow">
-                 <mr-number-formatter [input]="_getCumulative().againstAttempts"></mr-number-formatter>
-            </div>
-            <div class="mractjourney-sum-inforow">
-                <mr-number-formatter [input]="_getCumulative().baseAttempts"></mr-number-formatter>
-            </div>
-         </div>
-
-         <div class="mractjourney-sum-scol">
-             <div class="mractjourney-sum-title">success attempts</div>
-             <div class="mractjourney-sum-inforow">
-                 <mr-number-formatter [input]="_getCumulative().againstSuccessfulAttempts"></mr-number-formatter>
-             </div>
-             <div class="mractjourney-sum-inforow">
-                 <mr-number-formatter [input]="_getCumulative().baseSuccessfulAttempts"></mr-number-formatter>
-             </div>
-         </div>
-
-    </div>
-    <div class="mractjourney-sum-col" [style.opacity]="data.cumulativeData?1:0">
-         <div class="mractjourney-sum-title">aaa</div>
-         <div class="mractjourney-sum-inforow">{{_getCumulative().againstAaa}}</div>
-         <div class="mractjourney-sum-inforow">{{_getCumulative().baseAaa}}</div>
-
-    </div>
-    <div class="mractjourney-sum-col">
-    </div>
-</div>
+        <!--TABLE HDR-->
+        <mr-scorecard-hdrrow label="" [data]="labelsArr" mrpdfexporter-block ></mr-scorecard-hdrrow>
 
 
-<!--TABLE HDR-->
-<mr-scorecard-hdrrow label="" [data]="labelsArr" ></mr-scorecard-hdrrow>
-
-
-<!--OVERALLL-->
-<div class="mractjourney-overall">
-    <div class="mractjourney-row">
-        <div class="mractjourney-colhdr">
-            <mr-tablecol-hdr >Overall</mr-tablecol-hdr>
-        </div>
-        <div class="mractjourney-rowscroll-wrp" >
-            <div class="mractjourney-rowscroll">
-                <div  *ngFor="let item of overallData; let i=index" class="mractjourney-cell">
-                    <mr-scorecard-cell [data]="item"></mr-scorecard-cell>
+        <!--OVERALLL-->
+        <div class="mractjourney-overall mrglobal-shadow" mrpdfexporter-block>
+            <div class="mractjourney-row">
+                <div class="mractjourney-colhdr">
+                    <mr-tablecol-hdr >Overall</mr-tablecol-hdr>
+                </div>
+                <div class="mractjourney-rowscroll-wrp" >
+                    <div class="mractjourney-rowscroll">
+                        <div  *ngFor="let item of overallData; let i=index" class="mractjourney-cell">
+                            <mr-scorecard-cell [data]="item"></mr-scorecard-cell>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+        <!--TABLE ROWS-->
+        <div class="mractjourney-rowgrp mrglobal-shadow" *ngFor="let rowData of tableData; let i=index" mrpdfexporter-block>
+            <mr-row-bookmark label="fulfilment" bgcolor="#2D9CF2" >
+                <mr-scorecard-row [label]="rowData.label" [data]="rowData.aggMetrics" [highlight]="true"></mr-scorecard-row>
+            </mr-row-bookmark>
+
+            <mr-row-bookmark label="tools" bgcolor="#C197FF" >
+                <mr-scorecard-row *ngFor="let toolsData of rowData.metrics; let i=index" [label]="toolsData.label" [data]="toolsData.data"></mr-scorecard-row>
+            </mr-row-bookmark>
+
+        </div>
+    </mr-pdf-template>
 </div>
-
-
-<!--TABLE ROWS-->
-<div class="mractjourney-rowgrp" *ngFor="let rowData of tableData; let i=index" >
-    <mr-row-bookmark label="fulfilment" bgcolor="#2D9CF2" >
-        <mr-scorecard-row [label]="rowData.label" [data]="rowData.aggMetrics" [highlight]="true"></mr-scorecard-row>
-    </mr-row-bookmark>
-
-    <mr-row-bookmark label="tools" bgcolor="#C197FF" >
-        <mr-scorecard-row *ngFor="let toolsData of rowData.metrics; let i=index" [label]="toolsData.label" [data]="toolsData.data"></mr-scorecard-row>
-    </mr-row-bookmark>
-
-</div>
-
 
 
 

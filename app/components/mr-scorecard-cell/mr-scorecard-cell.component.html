@@ -1,6 +1,10 @@
 <div class="mrscorecell-wrp" *ngIf="data" [class.is-showaaa]="showAaa">
     <div class="mrscorecell-col mrscorecell-col1">
-        <div class="mrscorecell-firstrow mrscorecell-mainval"><span>{{mainVal}}</span></div>
+        <div class="mrscorecell-firstrow mrscorecell-mainval">
+                <span>
+                    <mr-percentage-formatter [input]="data?.againstSuccess"></mr-percentage-formatter>
+                </span>
+        </div>
         <div class="mrscorecell-label">{{data?.againstLabel}}</div>
         <div class="mrscorecell-label">{{data?.baseLabel}}</div>
     </div>

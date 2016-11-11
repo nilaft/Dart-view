@@ -1,5 +1,8 @@
-import { Component, OnInit, Input , Output, EventEmitter, ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, Input , Output, EventEmitter, ViewChild} from '@angular/core';
 import {ActivationDataConverterService} from '../../services/activation-data-converter.service';
+import {FilterService} from '../../services/filter.service';
+import {MrPdfExporterComponent} from '../mr-pdf-exporter/mr-pdf-exporter.component';
+import {StickyheaderService} from '../../services/stickyheader.service';
 
 
 @Component({
@@ -13,6 +16,12 @@ export class MrScorecardPageComponent implements OnInit {
    @Input('row-labels') rowLabels;
    @Input('key-ignore') keysIgnore = {};
 
+
+ 
+   @ViewChild('sticky') stickyRef;
+   @ViewChild(MrPdfExporterComponent) pdfExporter: MrPdfExporterComponent;
+   @ViewChild('container') container;
+
    @Output('change') paramsChanged:EventEmitter<any> = new EventEmitter<any>();;
 
    newFilter = {};
@@ -22,10 +31,14 @@ export class MrScorecardPageComponent implements OnInit {
    overallData:any = [];
     
   
-  constructor(private dataConverter:ActivationDataConverterService) { }
+  constructor(
+          private dataConverter : ActivationDataConverterService,
+          private filterService : FilterService,
+          private stickyHeader  : StickyheaderService
+      ) { }
 
   ngOnInit() {
-
+      this.newFilter = this.filterService.filter;
   }
 
 
@@ -34,9 +47,14 @@ export class MrScorecardPageComponent implements OnInit {
     if(changes.data && changes.data.currentValue){
       this._generateData(changes.data.currentValue,this.newFilter);
       this.curFilter = JSON.parse(JSON.stringify(this.newFilter));
-    }
+      requestAnimationFrame(()=>{
+          this.stickyHeader.sticky(this.stickyRef.nativeElement);
+      });
+    } 
+  }
 
-    
+  _exportToPdf(){
+        this.pdfExporter.convert(this.container.nativeElement,'scorecard.pdf','#EEEEEE');
   }
   
   _generateData(data, filter){
@@ -49,8 +67,8 @@ export class MrScorecardPageComponent implements OnInit {
     
   }
 
-  onFilterChanged($event){
-      this.paramsChanged.emit(this.newFilter);
+  ngOnDestroy(){
+     this.stickyHeader.remove(this.stickyRef.nativeElement);
   }
 
 

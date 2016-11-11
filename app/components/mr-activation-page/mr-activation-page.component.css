@@ -1,0 +1,14 @@
+:host{
+    display: block;
+}
+
+mr-scorecard-tabs{
+    margin-bottom: 5px;
+    z-index: 2;
+    position: relative;
+
+}
+
+mr-scorecard-tabs >>> .mrscorecardtabs-front {
+    padding: .3em 1em;
+}

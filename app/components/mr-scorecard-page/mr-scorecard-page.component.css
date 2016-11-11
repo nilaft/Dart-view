@@ -1,4 +1,7 @@
-
+:host{
+    position: relative;
+    display: block;
+}
 .mrscorepage-overall{
     padding: .5em 1em;
     display: flex;
@@ -59,3 +62,22 @@ mr-scorecard-hdrrow >>> .mrscorehdrow-colhdr{
 }
 
 
+
+
+/*MRSticky*/
+
+.mrsticky.mrscorepage-overall{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.mrsticky mr-scorecard-cell >>> .mrscorecell-firstrow{
+    height: 1.3em !important;
+}
+.mrsticky mr-scorecard-cell >>> .mrscorecell-mainval span{
+    font-size: 1em !important;
+}
+
+.mrsticky mr-scorecard-cell >>> .mrscorecell-label{
+    margin-top: .2em !important;
+}

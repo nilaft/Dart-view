@@ -1,4 +1,49 @@
 :host{
-    font-family: 'Open Sans', sans-serif;
     
+    
+}
+
+.hdr{
+    height:50px;
+    background:#6AD3E3;
+    border-bottom: 2px solid #098193;
+}
+
+.wrp{
+    width: 100%;
+    height: 100vh;
+    background: #EEEEEE;
+}
+
+.links{
+    cursor:pointer;
+    padding:.5em 1em;
+    color: #ccc;
+    display: block;
+    text-decoration: none !important
+}
+
+.links.active{
+    color: white;
+    background: rgba(0,0,0,.5);
+}
+
+.content-wrp{
+    position: relative;
+}
+
+.sidebar{
+    width: 200px;
+    background: #2C2C2C;
+    height: calc(100vh - 50px);
+    color:white;
+    padding-top:1em;
+    float:left;
+}
+
+.content{
+    display:block;
+    overflow: scroll;
+    height: calc(100vh - 50px);
+    position: relative;
 }

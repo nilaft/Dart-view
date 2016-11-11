@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+declare var d3:any;
+
 @Component({
   selector: 'mr-piegraph-with-legends',
   templateUrl: './mr-piegraph-with-legends.component.html',
@@ -9,12 +11,11 @@ export class MrPiegraphWithLegendsComponent implements OnInit {
   @Input() data;
   @Input() label;
 
-  colorsList = ['#FD0400','#F67613','#F8C13B','#17971A','#2F9DF2','#7F4FE5','#214561','#DD3290','#AAAAAA'];
+  colorsList = d3.range(20).map(d3.scale.category10()) ;
 
   constructor() { }
 
   ngOnInit() {
-
 
   }
 

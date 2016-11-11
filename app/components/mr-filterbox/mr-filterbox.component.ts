@@ -89,7 +89,8 @@ export class MrFilterboxComponent implements OnInit {
         var formatted = newDate.format("DD MMM");
         dayOptions.push({
             label : formatted,
-            value : formatted
+            value : formatted,
+            date : newDate.format("YYYY-MM-DD")
         });
     }
 
@@ -99,7 +100,8 @@ export class MrFilterboxComponent implements OnInit {
         var formatted = newDate.format("MMM YY");
         monthOptions.push({
             label : formatted,
-            value : formatted
+            value : formatted,
+            date : newDate.format("YYYY-MM-DD")
         });
     }
 
@@ -109,7 +111,8 @@ export class MrFilterboxComponent implements OnInit {
         var formatted = newDate.format("YYYY");
         yearOptions.push({
             label : formatted,
-            value : formatted
+            value : formatted,
+            date : newDate.format("YYYY-MM-DD")
         });
     }
 

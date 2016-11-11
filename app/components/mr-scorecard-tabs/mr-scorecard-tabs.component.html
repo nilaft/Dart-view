@@ -1,0 +1,15 @@
+<div class="mrscorecardtabs-wrp" [class.is-expanded]="!(selected >= 0) && expandedViewEnabled">
+   <div *ngFor="let item of data;let i=index" [class.is-active]="selected == i" class="mrscorecardtabs-entry">
+    <div [class.is-show]="isShowArrow" class="mrscorecardtabs-arrow"></div>
+    <div class="mrscorecardtabs-bg mrglobal-shadow"></div>
+    <div class="mrscorecardtabs-bg mrscorecardtabs-bg-active"></div>
+    <div class="mrscorecardtabs-front " (click)="_onClicked(i)">
+        <div class="mrscorecardtabs-label">{{item.label}}</div>
+        <div class="mrscorecardtabs-val">
+          <mr-percentage-formatter [input]="item.value"></mr-percentage-formatter>
+        </div>
+    </div>
+    
+    
+  </div>
+</div>

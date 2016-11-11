@@ -68,7 +68,6 @@ export class MrFcsdetailPageComponent implements OnInit {
   }
 
   ngOnChanges(changes){
-      console.log(changes.curPageNo);
       if(changes.curPageNo){
           this.fetch()
       }

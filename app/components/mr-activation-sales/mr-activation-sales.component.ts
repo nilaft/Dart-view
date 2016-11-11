@@ -1,14 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
 import {ActivationService} from '../../services/activation.service';
+import {FilterService} from '../../services/filter.service';
+import { slideIn } from '../../animations/page.animation';
 
 @Component({
   selector: 'mr-activation-sales',
   templateUrl: './mr-activation-sales.component.html',
-  styleUrls: ['./mr-activation-sales.component.css']
+  styleUrls: ['./mr-activation-sales.component.css'],
+  host:{
+    '[@slideIn]' : 'true'
+  },
+  animations : [slideIn]
 })
 export class MrActivationSalesComponent implements OnInit {
 
-   newFilter = {};
+   filter;
    data:any;
    rowLabels = [".COM","ACSR/Vision","CTP"];
     
@@ -27,10 +33,13 @@ export class MrActivationSalesComponent implements OnInit {
       }
   ];
 
-  constructor(private dataService:ActivationService) { }
+  constructor(private dataService:ActivationService, private filterService:FilterService) { 
+      
+  }
 
   ngOnInit() {
-    // this._fetchData(undefined);
+    this.filter = this.filterService.filter;
+    this._fetchData(this.filter);
 
   }
 

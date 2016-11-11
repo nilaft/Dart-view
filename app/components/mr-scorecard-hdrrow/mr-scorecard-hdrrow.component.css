@@ -3,7 +3,6 @@
 }
 .mrscorehdrow-hdr{
     display: flex;
-    box-shadow: 0 0 .1em .05em rgba(0,0,0,.1);
 }
 
 .mrscorehdrow-hdr .mrscorehdrow-colhdr{
@@ -29,6 +28,10 @@
     justify-content: center;
     line-height: 1.2;
     
+}
+
+.mrscorehdrow-colcell div:last-child{
+    border-right: 0;
 }
 
 .mrscorehdrow-colcell div:last-child{

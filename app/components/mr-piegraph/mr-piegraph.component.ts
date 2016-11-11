@@ -22,8 +22,8 @@ export class MrPiegraphComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-      this.$ele =  d3.select(this.graphContainer.nativeElement).append("svg:svg");
-      this.$ele.append("svg:g");
+      this.$ele =  d3.select(this.graphContainer.nativeElement).append("svg");
+      this.$ele.append("g");
       this.drawPie();
   }
 
@@ -47,6 +47,8 @@ export class MrPiegraphComponent implements OnInit {
       var h = dimension;
       var r = h/2;
       var color = d3.scale.ordinal().range(colors);
+      
+      this.$ele.attr('viewBox',`0 0  ${eleWidth} ${eleHeight}`);
       
       var $ele =  this.$ele
           .data([data])

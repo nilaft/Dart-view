@@ -1,5 +1,4 @@
 :host{
-    padding: 1em;
     display: block;
 }
 
@@ -8,23 +7,6 @@
     position: relative;
 }
 
-mr-pdf-exporter{
-    position: absolute;
-    right: 1em;
-    top: .1em;
-    cursor: pointer;
-}
-
-mr-pdf-exporter img {
-    width: 1.2em;
-}
-
-mr-pagestep-indicator{
-    position: relative;
-    display: block;
-    width: 60%;
-    margin: 0 auto 1em auto;
-}
 
 .mrauthmech-sectwrp{
     display: flex;
@@ -85,6 +67,7 @@ mr-pagestep-indicator{
 
 
 .mrauthmech-table{
+    margin-top: 1em;
     padding-bottom: 1em;
 }
 
@@ -118,6 +101,7 @@ mr-pagestep-indicator{
     background: white;
     margin-bottom: 1px;
     padding: .5em 1em .2em 1em;
+    height: 3em;
 }
 
 
@@ -127,14 +111,24 @@ mr-pagestep-indicator{
 }
 
 .mrauthmech-tablecolhdr{
-    padding: 1em;
-    display: flex;
-    padding: 0 2em;
-    align-items: center;
+    /*font-size: .9em;*/
+}
+
+.mrauthmech-tablecolhdr > div{
+    padding: 0 1em;
     background: white;
-    font-size: .9em;
     color: #545454;
     font-weight: 600;
+    height: 3em;
+    line-height: 3em;
+}
+
+.mrauthmech-tablecolhdr > div span{
+    font-size: .85em;
+}
+
+.mrauthmech-tablecolhdr > div:first-child{
+    margin-bottom: 1px;
 }
 
 .mrauthmech-inforow{
@@ -160,6 +154,39 @@ mr-pagestep-indicator{
 
 
 
-/*.print-mode .mrauthmech-sectwrp {
-    font-size: 2em;
-}*/
+/*
+PRINT PDF Styles
+*/
+
+.mrpdf-print .mrauthmech-reasons-sect{
+    width : 50% !important;
+}
+
+.mrpdf-print >>> .mrpielegend-sectlabel{
+    font-size: 1em;
+    text-overflow: initial;
+    white-space: initial;
+    overflow: initial;
+}
+
+ .mrpdf-print >>> mr-piegraph,.mrpdf-print >>> mr-piegraph svg{
+     width: 10em;
+     height: 10em;
+
+}
+
+.mrpdf-print >>> mr-piegraph{
+    margin: -1em;
+}
+
+.mrpdf-print .mrauthmech-table{
+    font-size: 1.1em;
+}
+
+.mrpdf-print >>> .mrpielegend-label{
+    font-size: 1em;
+}
+
+ .mrpdf-print >>> .mrpielegend-sqrwrp{
+     margin-top: .2em;
+ }

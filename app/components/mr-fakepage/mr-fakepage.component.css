@@ -1,0 +1,6 @@
+:host{
+    display: block;
+    background: white;
+    height: 300px;
+     box-shadow:0 0em .15em .1em rgba(0,0,0,.1);
+}

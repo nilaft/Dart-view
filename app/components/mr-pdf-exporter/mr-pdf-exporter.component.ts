@@ -7,6 +7,152 @@ declare var html2pdf:any;
 declare var canvg:any;
 declare var html2canvas;
 
+var debug = false;
+
+class MRPdfExporter{
+    padding = 10;
+    constructor(ele:any, filename:string, bgcolor:string){
+        var result     = this._setupClone(ele);
+        result.content.style.background = bgcolor;
+
+        var $pageBlocks = result.content.querySelectorAll('[mrpdfexporter-block]');
+        var pageList  = this._splitToPages($pageBlocks);
+        var noPagination = false;
+        
+        if(pageList == undefined){
+            noPagination = true;
+            pageList = [result.content];
+        }
+
+        var size = [ 340, 257];
+
+        var doc = new jsPDF({
+            orientation : 'landscape',
+            unit : 'mm',
+            format : size
+        }); 
+
+        var _drawPage = (curIndex)=>{
+                
+               if(!noPagination){
+                    var curPage = pageList[curIndex];
+                    for (var i = 0; i < $pageBlocks.length; ++i) {
+                        ($pageBlocks[i] as any).style.display = "none";
+                    }
+
+                    for (var i = 0; i < curPage.length; ++i) {
+                        (curPage[i] as any).style.display = "";
+                    }
+               }
+
+                var curPageDimension = result.content.getBoundingClientRect()
+                try {
+                    result.content.querySelector('.mrpdftemplate-pageno').innerHTML = ""+(curIndex+1)
+                } catch (error) {
+                    
+                }
+
+                // convert clone to canvas, then create jspdf 
+                this._convertToCanvas(result.content,curPageDimension,(canvas)=>{
+                        result.wrapper.appendChild(canvas);
+
+                        doc.addImage(canvas,0,0, size[0],size[0] * (curPageDimension.height/curPageDimension.width));
+                        if(curIndex === pageList.length-1){
+                            doc.save(filename);
+
+                            if(!debug){
+                                document.body.removeChild(result.wrapper);
+                            }
+                        }
+                        else{
+                            doc.addPage();
+                            _drawPage(curIndex+1);
+                        }
+
+                       
+                }); 
+
+        }
+
+        _drawPage(0);
+       
+    }
+
+    
+    _setupClone(ele){
+
+        // create div and append to body 
+
+        var clone = ele.cloneNode(true);
+        clone.setAttribute('class',"mrpdf-print");
+
+        var content = document.createElement('div');
+        content.appendChild(clone);
+        content.style.padding = this.padding + 'px';
+        content.style.width = "auto";
+
+        var wrapper = document.createElement('div');
+        wrapper.appendChild(content);
+        wrapper.setAttribute('class',"mrpdf-print-wrp");
+        wrapper.setAttribute('style','pointer-events:none; position: fixed;left: 0;right: 0;top: 0;background: #e6e6e6;min-height: 100vh;z-index: 1000000000;');
+        if(!debug){
+            wrapper.style.opacity = "0";
+        }
+        document.body.appendChild(wrapper);
+
+        
+ 
+        return { content : content, wrapper : wrapper};
+    }
+
+    _splitToPages(blocks){
+        // split to pages
+        var $allBlocks = blocks
+        if(blocks.length == 0){
+            return undefined;
+        }
+
+        var pagesList = [];
+        var curTopOffset  = 0;
+        var curPage = [];
+        var maxPageHeight = 0.667 * window.innerWidth - 20;
+        $allBlocks.forEach(item =>{
+            var offset = item.getBoundingClientRect();
+            if(maxPageHeight < offset.bottom - curTopOffset){
+                if(curPage.length>0){
+                    pagesList.push(curPage)
+                    curPage = [];
+                    curTopOffset = offset.top;
+                }
+                
+            }
+            curPage.push(item);
+
+        })
+        //push last page
+        pagesList.push(curPage)
+
+        return pagesList
+    }
+
+    _convertToCanvas(ele,dimensions,onComplete){
+        var canvas = document.createElement('canvas');
+        var w = dimensions.width ;
+        var h = dimensions.height;
+
+        canvas.setAttribute('style','position: fixed;left: 0;right: 0;top: 0;background: #e6e6e6;');
+        canvas.width        = w*2;
+        canvas.height       = h*2;
+        canvas.style.width  = w + 'px';
+        canvas.style.height = h + 'px';
+        
+        var context = canvas.getContext('2d');
+        context.scale(2,2);
+        html2canvas(ele, { canvas: canvas }).then(onComplete);
+        return canvas;
+
+    }
+}
 
 @Component({
   selector: 'mr-pdf-exporter',
@@ -18,111 +164,16 @@ export class MrPdfExporterComponent implements OnInit {
 
   constructor() { }
   
-  addEle(i,doc,childrens,bgcolor,filename,bodyOffset,eleOffset){
-      var self = this;
-      var childOffset = childrens[i].getBoundingClientRect();
-      var offsetDiff = childOffset.bottom - bodyOffset.bottom;
-
-      // if hidden, offset it
-      childrens[i].style.position = `relative`;
-      if(offsetDiff > 0){
-          childrens[i].style.top = `${-offsetDiff}px`;
-      }
-
-      // var w = 2000;
-      // var h = 1000;
-      // var div = document.querySelector('mr-authmechanism-page');
-      // var canvas = document.createElement('canvas');
-      // canvas.width = w*2;
-      // canvas.height = h*2;
-      // canvas.style.width = w + 'px';
-      // canvas.style.height = h + 'px';
-      // var context = canvas.getContext('2d');
-      // context.scale(2,2);
-      // html2canvas(div, { canvas: canvas }).then(function(canvas) {
-      // // var myImage = canvas.toDataURL("image/png");
-      // //             window.open(myImage);
-      //     // do what you want
-      // });
-      var x=0,y=0;
-      if(i>3){
-          doc.addPage();
-      }
-      else{
-        x = childOffset.left-eleOffset.left;
-        y = childOffset.top-eleOffset.top;
-      }
-      // now add to pdf
-      doc.addHTML(childrens[i], x, y, {
-          'background': bgcolor || '#fff'
-        }, function() {
-            if(childrens.length - 1 === i)
-                doc.save(filename);
-            else{
-                
-                self.addEle(i+1,doc,childrens,bgcolor,filename,bodyOffset,eleOffset);
-            }
-            childrens[i].style.position = ``;
-            childrens[i].style.top = ``;
-      });
-  }
-
+ 
   convert(ele:any,filename:string,bgcolor:string){
-      var doc = new jsPDF("l","pt");
-      var childrens = $(ele).children();
-      var count = 0;
-      
-      var bodyOffset = document.body.getBoundingClientRect();
-      var eleOffset = ele.getBoundingClientRect();
-      
-      // var pdf = new jsPDF('p', 'pt', 'c1');
-      //       var c = pdf.canvas;
-      //       c.width = 1000;
-      //       c.height = 500;
+      // clone to body
+      // apply new styles
+      // create canvas and append to dom
+      // set opacity
+      // addimage & save pdf
 
-      //       var ctx = c.getContext('2d');
-      //       ctx.ignoreClearRect = true;
-      //       ctx.fillStyle = '#ffffff';
-      //       ctx.fillRect(0, 0, 1000, 700);
-
-      //       //load a svg snippet in the canvas with id = 'drawingArea'
-      //       canvg(c, $('mr-piegraph svg')[0].outerHTML, {
-      //           ignoreMouse: true,
-      //           ignoreAnimation: true,
-      //           ignoreDimensions: true
-      //       });
-
-    //   var pdf = new jsPDF('p', 'pt', 'letter');
-    // var canvas = pdf.canvas;
-
-    // canvas.width = 8.5 * 72;
-
-    // html2canvas(document.body, {
-    //     canvas:canvas,
-    //     onrendered: function(canvas) {
-    //         pdf.save();
-    //     }});
-
-
-      // loop through children , and add to pdf one by one, due to bug in jspdf printing blacked screen if element is hidden in scroll
-      this.addEle(0,doc,childrens,bgcolor,filename,bodyOffset,eleOffset);
-      
-      
-//     var w = 2000;
-// var h = 1000;
-// var div = $0;
-// var canvas = document.createElement('canvas');
-// canvas.width = w*2;
-// canvas.height = h*2;
-// canvas.style.width = w + 'px';
-// canvas.style.height = h + 'px';
-// var context = canvas.getContext('2d');
-// context.scale(2,2);
-// html2canvas(div, { canvas: canvas }).then(function(canvas) {
-// var myImage = canvas.toDataURL("image/png");
-//             window.open(myImage);
-//     // do what you want
-// });
+      new MRPdfExporter(ele,filename,bgcolor);
+    
   }
 
   ngOnInit() {

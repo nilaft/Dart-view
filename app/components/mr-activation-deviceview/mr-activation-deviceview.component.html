@@ -1,8 +1,5 @@
-<!--FILTER-->
-<div class="mrglobal-shadow">
-    <mr-filterbox [(filter)]="newFilter" (change)="onFilterChanged($event)" ></mr-filterbox>
-
-    <div class="mrscorepage-overall ">
+<div>
+    <div class="mrscorepage-overall mrglobal-shadow " #sticky>
         <div *ngFor="let item of overallData;let i=index">
             <div class="mrscorepage-overalllabel">{{item.key}}</div>
             <mr-scorecard-cell [data]="item" [show-aaa]="false" large></mr-scorecard-cell>
@@ -13,21 +10,55 @@
 
 
 
-<div  class="mrglobal-shadow mrscorepage-row mractdevice-content">
+<div  class="mrglobal-shadow mrscorepage-row mractdevice-content mractdevice-device">
     <!--TABLE HDR-->
     <mr-scorecard-hdrrow [label]="deviceHdrLabels" [data]="colLabels" ></mr-scorecard-hdrrow>
     
     <div class="mrscorerow-row" *ngFor="let rowData of deviceData; ">
         <div class="mrscorerow-colhdr">
-            <mr-tablecol-hdr [attr.right-align]="highlight && null">{{rowData.type}}</mr-tablecol-hdr>
+            <mr-tablecol-hdr>{{rowData.type}}</mr-tablecol-hdr>
         </div>
         <div class="mrscorerow-colhdr">
-            <mr-tablecol-hdr [attr.right-align]="highlight && null">{{rowData.device}}</mr-tablecol-hdr>
+            <mr-tablecol-hdr>{{rowData.device}}</mr-tablecol-hdr>
         </div>
         <div class="mrscorerow-rowscroll-wrp" >
             <div class="mrscorerow-rowscroll">
                 <div  *ngFor="let item of rowData.cols; let i=index" class="mrscorerow-cell">
                     <mr-scorecard-cell [data]="item" [show-aaa]="showAaa"></mr-scorecard-cell>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div  class="mrglobal-shadow mrscorepage-row mractdevice-content mractdevice-rdk">
+    <!--TABLE HDR-->
+    <mr-scorecard-hdrrow label="" [data]="rdkColLables" ></mr-scorecard-hdrrow>
+    
+    <div class="mrscorerow-row" *ngFor="let rowData of rdkData;let i=rowindex ">
+        <div class="mrscorerow-colhdr">
+            <mr-tablecol-hdr>{{rowData.label}}</mr-tablecol-hdr>
+        </div>
+        <div class="mrscorerow-rowscroll-wrp" >
+            <div class="mrscorerow-rowscroll">
+                <div  *ngFor="let item of rowData.cols; let i=index" class="mrscorerow-cell">
+                    <div>
+                        <div class="mractdevice-cellrow">
+                            <div >{{newFilter.range2?.label}}</div>
+                            <div><mr-percentage-formatter [input]="item.againstSuccess"></mr-percentage-formatter></div>
+                            <div><mr-percent-view [value]="_calculatePercentDiff(item)"></mr-percent-view></div>
+
+                        </div>
+                        <div class="mractdevice-cellrow">
+                            <div>{{newFilter.range1?.label}}</div>
+                            <div><mr-percentage-formatter [input]="item.baseSuccess"></mr-percentage-formatter></div>
+                            
+
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,100 +1,99 @@
-<mr-pagestep-indicator [(pageindex)]="pageIndex" [labels]="pageLabels"></mr-pagestep-indicator>
-
-<!--<div (click)="pageIndex = pageIndex-1"> prev </div> <div (click)="pageIndex = pageIndex+1"> next </div>-->
-
 <div class="mrauthmech-body print-mode">
     <mr-pdf-exporter (click)="_exportToPdf()">
-        <img src="assets/images/icon-pdf.png"/>    
+         
     </mr-pdf-exporter>
 
-    <div #authContainer>
+    <div #authContainer> 
 
-        <mr-filterbox [(filter)]="selectedFilter"></mr-filterbox>
-
-        <div class="mrauthmech-sectwrp ">
-            <div class="mrauthmech-sect mrauthmech-summarysect">
-                <mr-piegraph-with-legends [data]="pieSummaryBase" [label]="selectedFilter.range1.label"></mr-piegraph-with-legends>
+        <mr-pdf-template title="Authentication Mechanism">
+            <div class="mrauthmech-sectwrp " mrpdfexporter-block >
+                <div class="mrauthmech-sect mrauthmech-summarysect">
+                    <mr-piegraph-with-legends [data]="pieSummaryBase" [label]="filter.range1.label"></mr-piegraph-with-legends>
+                </div>
+                <div class="mrauthmech-sect mrauthmech-summarysect">
+                <mr-piegraph-with-legends [data]="pieSummaryAgainst" [label]="filter.range2.label"></mr-piegraph-with-legends>
+                </div>
             </div>
-            <div class="mrauthmech-sect mrauthmech-summarysect">
-            <mr-piegraph-with-legends [data]="pieSummaryAgainst" [label]="selectedFilter.range2.label"></mr-piegraph-with-legends>
-            </div>
-        </div>
 
-        <div class="mrauthmech-legend-wrp">
-        <div class="mrauthmech-legend">
-            <span>Auth Att:</span> Authentication Attempts
-        </div>
-        <div class="mrauthmech-legend">
-            <span>Auth Suc:</span> Successful Authentication Attempts
-        </div>
-        </div>
-
-        <div class="mrauthmech-table">
-            <div class="mrauthmech-tablehdr">
-                <mr-tablehdr-cell>TOOLS</mr-tablehdr-cell>
-                <mr-tablehdr-cell>ACCOUNT NO/TN</mr-tablehdr-cell>
-                <mr-tablehdr-cell>UID/PASSWORD</mr-tablehdr-cell>
-                <mr-tablehdr-cell>SMS VERIFICATION</mr-tablehdr-cell>
+            <!--<div class="mrauthmech-legend-wrp" mrpdfexporter-block >
+            <div class="mrauthmech-legend">
+                <span>Auth Att:</span> Authentication Attempts
             </div>
-            <div class="mrauthmech-tablerow" *ngFor="let tool of toolsList; let i=index">
-                <div class="mrauthmech-tablecolhdr mrauthmech-tablecol">{{tool.label}}</div>
-                <div class="mrauthmech-tablecol" *ngFor="let entity of entities; let entityIndex=index">
-                    <div class="mrauthmech-infobx">
-                        <div class="mrauthmech-inforow">
-                            <div>{{selectedFilter.range1.label}} Auth Att</div>
-                            <div class="mrauthmech-inforow-sep">:</div>
-                            <div> 
-                                <mr-number-formatter [input]="_getData(tool.value,entity.value).baseAttempts"></mr-number-formatter>
-                            </div>
-                        </div>
-                        <div class="mrauthmech-inforow">
-                            <div>{{selectedFilter.range2.label}} Auth Att</div>
-                            <div class="mrauthmech-inforow-sep">:</div>
-                            <div>
-                                <mr-number-formatter [input]="_getData(tool.value,entity.value).againstAttempts"></mr-number-formatter>
-                            </div>
-                        </div>
+            <div class="mrauthmech-legend">
+                <span>Auth Suc:</span> Successful Authentication Attempts
+            </div>
+            </div>-->
+
+            <div class="mrauthmech-table"  mrpdfexporter-block >
+                <div class="mrauthmech-tablehdr">
+                    <mr-tablehdr-cell>TOOLS</mr-tablehdr-cell>
+                    <mr-tablehdr-cell>ACCOUNT NO/TN</mr-tablehdr-cell>
+                    <mr-tablehdr-cell>UID/PASSWORD</mr-tablehdr-cell>
+                    <mr-tablehdr-cell>SMS VERIFICATION</mr-tablehdr-cell>
+                </div>
+                <div class="mrauthmech-tablerow" *ngFor="let tool of toolsList; let i=index">
+                    <div class="mrauthmech-tablecolhdr mrauthmech-tablecol">
+                            <div><span>{{tool.label}} Attempts</span></div>
+                            <div><span>{{tool.label}} Successful Attempts</span></div>
                     </div>
-                    <div  class="mrauthmech-infobx">
-                        <div class="mrauthmech-inforow">
-                            <div>{{selectedFilter.range1.label}} Auth Suc</div>
-                            <div class="mrauthmech-inforow-sep">:</div>
-                            <div>
-                                <mr-number-formatter [input]="_getData(tool.value,entity.value).baseSuccessfulAttempts"></mr-number-formatter>
+                    <div class="mrauthmech-tablecol" *ngFor="let entity of entities; let entityIndex=index">
+                        <div class="mrauthmech-infobx">
+                            <div class="mrauthmech-inforow">
+                                <div>{{filter.range1.label}} Auth Att</div>
+                                <div class="mrauthmech-inforow-sep">:</div>
+                                <div> 
+                                    <mr-number-formatter [input]="_getData(tool.value,entity.value).baseAttempts"></mr-number-formatter>
+                                </div>
+                            </div>
+                            <div class="mrauthmech-inforow">
+                                <div>{{filter.range2.label}} Auth Att</div>
+                                <div class="mrauthmech-inforow-sep">:</div>
+                                <div>
+                                    <mr-number-formatter [input]="_getData(tool.value,entity.value).againstAttempts"></mr-number-formatter>
+                                </div>
                             </div>
                         </div>
-                        <div class="mrauthmech-inforow">
-                            <div>{{selectedFilter.range2.label}} Auth Suc</div>
-                            <div class="mrauthmech-inforow-sep">:</div>
-                            <div>
-                                <mr-number-formatter [input]="_getData(tool.value,entity.value).againstSuccessfulAttempts"></mr-number-formatter>
+                        <div  class="mrauthmech-infobx">
+                            <div class="mrauthmech-inforow">
+                                <div>{{filter.range1.label}} Auth Suc</div>
+                                <div class="mrauthmech-inforow-sep">:</div>
+                                <div>
+                                    <mr-number-formatter [input]="_getData(tool.value,entity.value).baseSuccessfulAttempts"></mr-number-formatter>
+                                </div>
+                            </div>
+                            <div class="mrauthmech-inforow">
+                                <div>{{filter.range2.label}} Auth Suc</div>
+                                <div class="mrauthmech-inforow-sep">:</div>
+                                <div>
+                                    <mr-number-formatter [input]="_getData(tool.value,entity.value).againstSuccessfulAttempts"></mr-number-formatter>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-        </div>
-
-
-        <div class="mrauthmech-sectwrp mrauthmech-failuresect-wrp">
-            <div class="mrauthmech-sect mrauthmech-reasons-sect">
-                <mr-piegraph-with-legends [data]="calculatedFailureReasons['CAAP_Base']" [label]="selectedFilter.range1.label + ' '+ toolsList[0].short +' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
+                
             </div>
 
-            <div class="mrauthmech-sect mrauthmech-reasons-sect">
-                <mr-piegraph-with-legends [data]="calculatedFailureReasons['CAAP_Against']" [label]="selectedFilter.range2.label + ' '+ toolsList[0].short + ' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
+
+            <div class="mrauthmech-sectwrp mrauthmech-failuresect-wrp" mrpdfexporter-block >
+                <div class="mrauthmech-sect mrauthmech-reasons-sect">
+                    <mr-piegraph-with-legends [data]="calculatedFailureReasons['CAAP_Base']" [label]="filter.range1.label + ' '+ toolsList[0].short +' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
+                </div>
+
+                <div class="mrauthmech-sect mrauthmech-reasons-sect">
+                    <mr-piegraph-with-legends [data]="calculatedFailureReasons['CAAP_Against']" [label]="filter.range2.label + ' '+ toolsList[0].short + ' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
+                </div>
+
+                <div class="mrauthmech-sect mrauthmech-reasons-sect">
+                    <mr-piegraph-with-legends [data]="calculatedFailureReasons['SUSI_Base']" [label]="filter.range1.label  + ' '+ toolsList[1].short + ' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
+                </div>
+
+                <div class="mrauthmech-sect mrauthmech-reasons-sect">
+                    <mr-piegraph-with-legends [data]="calculatedFailureReasons['SUSI_Against']" [label]="filter.range2.label  + ' '+ toolsList[1].short + ' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
+                </div>
+                
             </div>
 
-            <div class="mrauthmech-sect mrauthmech-reasons-sect">
-                <mr-piegraph-with-legends [data]="calculatedFailureReasons['SUSI_Base']" [label]="selectedFilter.range1.label  + ' '+ toolsList[1].short + ' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
-            </div>
-
-            <div class="mrauthmech-sect mrauthmech-reasons-sect">
-                <mr-piegraph-with-legends [data]="calculatedFailureReasons['SUSI_Against']" [label]="selectedFilter.range2.label  + ' '+ toolsList[1].short + ' Top 5 Reasons for Failures'"></mr-piegraph-with-legends>
-            </div>
-            
-        </div>
-
+        </mr-pdf-template>
     </div>
 </div>

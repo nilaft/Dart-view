@@ -1,0 +1,12 @@
+:host{
+    padding: 1em;
+    display: block;
+}
+
+mr-scorecard-tabs{
+    margin-top: 5px;
+}
+
+.mrscoreapp-content{
+    margin-top: 1em;
+}

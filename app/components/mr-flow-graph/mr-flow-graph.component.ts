@@ -646,7 +646,6 @@ var ProvisioningGraph = (function() {
   ProvisioningGraph.prototype.setDimensions = function() {
     var ref;
     ref = [this.$ele.width(), this.$ele.height()], this.netWidth = ref[0], this.netHeight = ref[1];
-    console.log(ref);
     this.width = this.netWidth - this.margin.left - this.margin.right;
     this.height = this.netHeight - this.margin.top - this.margin.bottom;
     this.widthOriginal = this.width;
