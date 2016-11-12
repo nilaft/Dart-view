@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter} from '@angular/core';
+import { Component, OnInit, EventEmitter, Input} from '@angular/core';
 import {FCSService} from '../../services/fcs.service'
 
 @Component({
@@ -13,12 +13,121 @@ export class MrFcsdetailPageComponent implements OnInit {
   searchText = '';
   pagesList = [];
   curPageNo = 1;
+  filteredCorps = [];
 
   allCorps = [
     {
-      label :"Florida Corp",
-      value :"Florida Corp"
+      label :"Big South Region",
+      value :"Big South Region",
+      division : 'Central Division'
 
+    },
+    {
+      label :"Freedom Market",
+      value :"Freedom Market",
+      division : 'Central Division'
+
+    },
+    {
+      label :"Greater Chicago Market",
+      value :"Greater Chicago Market",
+      division : 'Central Division'
+
+    },
+    {
+      label :"Heartland Region",
+      value :"Heartland Region",
+      division : 'Central Division'
+
+    },
+    {
+      label :"Beltway Market",
+      value :"Beltway Market",
+      division : 'NorthEast Division'
+
+    },
+    {
+      label :"Florida Region",
+      value :"Florida Region",
+      division : 'NorthEast Division'
+
+    },
+    {
+      label :"Greater Boston Market",
+      value :"Greater Boston Market",
+      division : 'NorthEast Division'
+
+    },
+    {
+      label :"Keystone Market",
+      value :"Keystone Market",
+      division : 'NorthEast Division'
+
+    },
+    {
+      label :"Western New England Market",
+      value :"Western New England Market",
+      division : 'NorthEast Division'
+
+    },
+    {
+      label :"California Market",
+      value :"California Market",
+      division : 'West Division'
+
+    },
+    {
+      label :"Houston Market",
+      value :"Houston Market",
+      division : 'West Division'
+
+    },
+    {
+      label :"Mile High Market",
+      value :"Mile High Market",
+      division : 'West Division'
+
+    },
+    {
+      label :"Portland/Salem Market",
+      value :"Portland/Salem Market",
+      division : 'West Division'
+
+    },
+    {
+      label :"Salt Lake City Market",
+      value :"Salt Lake City Market",
+      division : 'West Division'
+
+    },
+    {
+      label :"Seattle Market",
+      value :"Seattle Market",
+      division : 'West Division'
+
+    },
+    {
+      label :"Twin Cities Market",
+      value :"Twin Cities Market",
+      division : 'West Division'
+
+    }
+
+
+  ];
+
+  allDivisions = [
+    {
+      label :"Central Division",
+      value :"Central Division"
+    },
+    {
+      label :"NorthEast Division",
+      value :"NorthEast Division"
+    },
+    {
+      label :"West Division",
+      value :"West Division"
     }
   ];
 
@@ -61,7 +170,7 @@ export class MrFcsdetailPageComponent implements OnInit {
 
 
   ngOnInit() {
-      this.filter.corp = this.allCorps[0];
+      this.setDivision(this.allDivisions[0]);
       this.fetch();
       
     
@@ -71,7 +180,10 @@ export class MrFcsdetailPageComponent implements OnInit {
       if(changes.curPageNo){
           this.fetch()
       }
+
   } 
+
+//   ngDoCheck
 
   fetch(){
       this.dataService.getFCSDetail({
@@ -93,9 +205,28 @@ export class MrFcsdetailPageComponent implements OnInit {
       );
   }
 
-  filterCorps(item){
+  setDivision(item){
+      this.filter.division = item;
+      this.generateCorps();
+  }
+
+  setCorp(item){
       this.filter.corp = item;
   }
+
+  generateCorps(){
+        var filteredCorps = []
+        this.allCorps.forEach((corp)=>{
+            if(corp.division === this.filter.division.value)
+                filteredCorps.push(corp);
+        });
+        this.filteredCorps = filteredCorps;
+
+        // set default division
+        if(this.filteredCorps.indexOf(this.filter.division) === -1)
+            this.setCorp(this.filteredCorps[0]);
+  }
+
 
   _formatData(data){
     var output = [];

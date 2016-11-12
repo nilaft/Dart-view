@@ -11,6 +11,9 @@ var debug = false;
 
 class MRPdfExporter{
     padding = 10;
+    
+    response : any;
+
     constructor(ele:any, filename:string, bgcolor:string){
         var result     = this._setupClone(ele);
         result.content.style.background = bgcolor;
@@ -32,50 +35,54 @@ class MRPdfExporter{
             format : size
         }); 
 
-        var _drawPage = (curIndex)=>{
+        this.response = new Promise((resolve, reject) => {
+             var _drawPage = (curIndex)=>{
                 
-               if(!noPagination){
-                    var curPage = pageList[curIndex];
-                    for (var i = 0; i < $pageBlocks.length; ++i) {
-                        ($pageBlocks[i] as any).style.display = "none";
+                    if(!noPagination){
+                            var curPage = pageList[curIndex];
+                            for (var i = 0; i < $pageBlocks.length; ++i) {
+                                ($pageBlocks[i] as any).style.display = "none";
+                            }
+
+                            for (var i = 0; i < curPage.length; ++i) {
+                                (curPage[i] as any).style.display = "";
+                            }
                     }
 
-                    for (var i = 0; i < curPage.length; ++i) {
-                        (curPage[i] as any).style.display = "";
-                    }
-               }
+                        var curPageDimension = result.content.getBoundingClientRect()
+                        try {
+                            result.content.querySelector('.mrpdftemplate-pageno').innerHTML = ""+(curIndex+1)
+                        } catch (error) {
+                            
+                        }
 
-                var curPageDimension = result.content.getBoundingClientRect()
-                try {
-                    result.content.querySelector('.mrpdftemplate-pageno').innerHTML = ""+(curIndex+1)
-                } catch (error) {
-                    
+                        // convert clone to canvas, then create jspdf 
+                        this._convertToCanvas(result.content,curPageDimension,(canvas)=>{
+                                result.wrapper.appendChild(canvas);
+
+                                doc.addImage(canvas,0,0, size[0],size[0] * (curPageDimension.height/curPageDimension.width));
+                                if(curIndex === pageList.length-1){
+                                    doc.save(filename);
+                                    if(!debug){
+                                        document.body.removeChild(result.wrapper);
+                                    }
+                                    resolve(true);
+                                }
+                                else{
+                                    doc.addPage();
+                                    _drawPage(curIndex+1);
+                                }
+
+                            
+                        }); 
+
                 }
 
-                // convert clone to canvas, then create jspdf 
-                this._convertToCanvas(result.content,curPageDimension,(canvas)=>{
-                        result.wrapper.appendChild(canvas);
-
-                        doc.addImage(canvas,0,0, size[0],size[0] * (curPageDimension.height/curPageDimension.width));
-                        if(curIndex === pageList.length-1){
-                            doc.save(filename);
-
-                            if(!debug){
-                                document.body.removeChild(result.wrapper);
-                            }
-                        }
-                        else{
-                            doc.addPage();
-                            _drawPage(curIndex+1);
-                        }
-
-                       
-                }); 
-
-        }
-
-        _drawPage(0);
+                _drawPage(0);
+                
+        });
        
+
     }
 
     
@@ -161,19 +168,18 @@ class MRPdfExporter{
 })
 
 export class MrPdfExporterComponent implements OnInit {
-
+  animate = false;
   constructor() { }
   
  
   convert(ele:any,filename:string,bgcolor:string){
-      // clone to body
-      // apply new styles
-      // create canvas and append to dom
-      // set opacity
-      // addimage & save pdf
-
-      new MRPdfExporter(ele,filename,bgcolor);
-    
+      if(this.animate)
+          return
+      this.animate = true;
+      var exporter = new MRPdfExporter(ele,filename,bgcolor);
+      exporter.response.then(()=>{
+          this.animate = false;
+      })
   }
 
   ngOnInit() {

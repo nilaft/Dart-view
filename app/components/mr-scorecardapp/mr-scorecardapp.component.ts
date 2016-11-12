@@ -10,7 +10,8 @@ import { ActivatedRoute, Router} from "@angular/router";
 export class MrScorecardappComponent implements OnInit {
   filter = {};
 
-  selected; lastSelected = -1;
+  selected; lastSelected;
+  _curPath;
 
   tabs = [
     {
@@ -48,10 +49,10 @@ export class MrScorecardappComponent implements OnInit {
 
   ngOnInit() {
       this.router.events.subscribe((path) => {
-             
             if(this.curRoute.children.length !== 0){
                 try {
                     var curPath = (this.curRoute.children[0].url as any).value[0].path;
+                    this._curPath = curPath;
                     this.tabs.every((tab,index)=>{
                         if(tab.path === curPath){
                             this.selected = index;
@@ -71,14 +72,17 @@ export class MrScorecardappComponent implements OnInit {
 
   ngDoCheck(){
       if(this.selected !== this.lastSelected){
+
           this.lastSelected = this.selected;
-          if(this.selected == undefined){
-              this.router.navigate([""])
+           var newPath = '';
+          if(this.selected !== undefined){
+            newPath = this.tabs[this.selected].path;
           }
-          else{
-              this.router.navigate(["scorecard/"+this.tabs[this.selected].path])
+
+          if(newPath !== this._curPath){
+            this._curPath = newPath;
+            this.router.navigate([newPath], {relativeTo: this.curRoute});
           }
-          
           
       }
   }

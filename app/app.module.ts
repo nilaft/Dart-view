@@ -57,7 +57,9 @@ import { MrPercentageFormatterComponent } from './components/mr-percentage-forma
 import { MrScorecardTabsComponent } from './components/mr-scorecard-tabs/mr-scorecard-tabs.component';
 import { MrActivationPageComponent } from './components/mr-activation-page/mr-activation-page.component';
 import { MrFakepageComponent } from './components/mr-fakepage/mr-fakepage.component';
-import { MrPdfTemplateComponent } from './components/mr-pdf-template/mr-pdf-template.component'
+import { MrPdfTemplateComponent } from './components/mr-pdf-template/mr-pdf-template.component';
+import { MrLoaderComponent } from './components/mr-loader/mr-loader.component';
+import { MrLoaderBlinkComponent } from './components/mr-loader-blink/mr-loader-blink.component'
 
 @NgModule({
   declarations: [
@@ -93,7 +95,9 @@ import { MrPdfTemplateComponent } from './components/mr-pdf-template/mr-pdf-temp
     MrScorecardTabsComponent,
     MrActivationPageComponent,
     MrFakepageComponent,
-    MrPdfTemplateComponent
+    MrPdfTemplateComponent,
+    MrLoaderComponent,
+    MrLoaderBlinkComponent
   ],
   imports: [
     BrowserModule,

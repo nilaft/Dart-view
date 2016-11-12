@@ -44,16 +44,16 @@
         <div class="mrscorerow-rowscroll-wrp" >
             <div class="mrscorerow-rowscroll">
                 <div  *ngFor="let item of rowData.cols; let i=index" class="mrscorerow-cell">
-                    <div>
+                    <div class="mractdevice-rdkcell">
                         <div class="mractdevice-cellrow">
-                            <div >{{newFilter.range2?.label}}</div>
-                            <div><mr-percentage-formatter [input]="item.againstSuccess"></mr-percentage-formatter></div>
-                            <div><mr-percent-view [value]="_calculatePercentDiff(item)"></mr-percent-view></div>
+                            <div class="mractdevice-rdkcell-label">{{newFilter.range2?.label}}</div>
+                            <div  class="mractdevice-rdkcell-val"><mr-percentage-formatter [input]="item.againstSuccess"></mr-percentage-formatter></div>
+                            <div class="mractdevice-rdkcell-perc"><mr-percent-view [value]="_calculatePercentDiff(item)"></mr-percent-view></div>
 
                         </div>
                         <div class="mractdevice-cellrow">
-                            <div>{{newFilter.range1?.label}}</div>
-                            <div><mr-percentage-formatter [input]="item.baseSuccess"></mr-percentage-formatter></div>
+                            <div class="mractdevice-rdkcell-label">{{newFilter.range1?.label}}</div>
+                            <div class="mractdevice-rdkcell-val"><mr-percentage-formatter [input]="item.baseSuccess"></mr-percentage-formatter></div>
                             
 
                         </div>

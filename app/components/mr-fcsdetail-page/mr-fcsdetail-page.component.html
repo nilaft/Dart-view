@@ -12,10 +12,20 @@
     <div class="mrfcsdet-filter-entry">
         <div class="dropdown">
             <button class="btn btn-primary dropdown-toggle" type="button" >
-                {{filter.corp.label}}
+                {{filter.division?.label}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <a  *ngFor="let item of allCorps; let i=index"  class="dropdown-item" (click)="filterCorps(item)" >{{item.label}}</a>
+                <a  *ngFor="let item of allDivisions; let i=index"  class="dropdown-item" (click)="setDivision(item)" >{{item.label}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="mrfcsdet-filter-entry">
+        <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" >
+                {{filter.corp?.label}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <a  *ngFor="let item of filteredCorps; let i=index"  class="dropdown-item" (click)="setCorp(item)" >{{item.label}}</a>
             </div>
         </div>
     </div>

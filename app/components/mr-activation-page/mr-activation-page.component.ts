@@ -13,6 +13,8 @@ import { slideIn } from '../../animations/page.animation';
 })
 export class MrActivationPageComponent implements OnInit {
 
+   _curPath;
+
    tabs = [
     {
       label: "channel view",
@@ -53,7 +55,7 @@ export class MrActivationPageComponent implements OnInit {
                 try {
                     
                     var curPath = (this.curRoute.children[0].url as any).value[0].path;
-                    console.log(curPath);
+                    this._curPath = curPath;
                     this.tabs.every((tab,index)=>{
                         
                         if(tab.path === curPath){
@@ -74,16 +76,15 @@ export class MrActivationPageComponent implements OnInit {
   goToSelectedRoute(){
       
        if(this.selected !== this.lastSelected){
-        //    console.log(this.selected,this.lastSelected,"hello2");
             this.lastSelected = this.selected;
-            if(this.selected == undefined){
-                this.router.navigate([""])
+            var newPath = '';
+            if(this.selected !== undefined){
+                newPath = this.tabs[this.selected].path;
             }
-            else{
-                // console.log("Meo",this.tabs[this.selected].path);
-                this.router.navigate(["scorecard/activate/"+this.tabs[this.selected].path])
+            if(newPath !== this._curPath){
+                this._curPath = newPath;
+                this.router.navigate([newPath], {relativeTo: this.curRoute});
             }
-            
        }
         
        

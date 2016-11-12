@@ -78,6 +78,6 @@ mr-scorecard-hdrrow >>> .mrscorehdrow-colhdr{
     font-size: 1em !important;
 }
 
-.mrsticky mr-scorecard-cell >>> .mrscorecell-label{
+.mrsticky mr-scorecard-cell >>> .mrscorecell-label,.mrsticky mr-scorecard-cell >>> .mrscorecell-col> div{
     margin-top: .2em !important;
 }
