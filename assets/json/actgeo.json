@@ -1,0 +1,719 @@
+{
+  "success": true,
+  "results": {
+    "overallData": {
+      "VOICE": {
+        "baseAttempts": 598810,
+        "baseSuccessfulAttempts": 0,
+        "baseSuccess": 94.93,
+        "baseAaa": 0,
+        "againstAttempts": 599148,
+        "againstSuccessfulAttempts": 0,
+        "againstSuccess": 94.18,
+        "againstAaa": 0,
+        "variance": -0.75,
+        "trendData": {
+          "1470009600000": {
+            "SUCCESS": 94.93
+          },
+          "1472688000000": {
+            "SUCCESS": 94.18
+          }
+        }
+      },
+      "DATA": {
+        "baseAttempts": 1791213,
+        "baseSuccessfulAttempts": 0,
+        "baseSuccess": 98.57,
+        "baseAaa": 0,
+        "againstAttempts": 1674706,
+        "againstSuccessfulAttempts": 0,
+        "againstSuccess": 98.36,
+        "againstAaa": 0,
+        "variance": -0.20999999999999375,
+        "trendData": {
+          "1470009600000": {
+            "SUCCESS": 98.57
+          },
+          "1472688000000": {
+            "SUCCESS": 98.36
+          }
+        }
+      },
+      "UNKNOWN": {
+        "baseAttempts": 301476,
+        "baseSuccessfulAttempts": 0,
+        "baseSuccess": 0,
+        "baseAaa": 0,
+        "againstAttempts": 197409,
+        "againstSuccessfulAttempts": 0,
+        "againstSuccess": 0,
+        "againstAaa": 0,
+        "variance": 0,
+        "trendData": {
+          "1470009600000": {
+            "SUCCESS": 0
+          },
+          "1472688000000": {
+            "SUCCESS": 0
+          }
+        }
+      }
+    },
+    "data": {
+      "CENTRALDIVISION": {
+        "metrics": {
+          "HEARTLANDREGION": {
+            "VOICE": {
+              "baseAttempts": 37018,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.37,
+              "againstAttempts": 36252,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 95.15,
+              "variance": 0.7800000000000011
+            },
+            "DATA": {
+              "baseAttempts": 131253,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.51,
+              "againstAttempts": 118813,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 99.07,
+              "variance": 0.5599999999999881
+            },
+            "UNKNOWN": {
+              "baseAttempts": 25382,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 15136,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "GREATERCHICAGOMARKET": {
+            "VOICE": {
+              "baseAttempts": 49277,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.5,
+              "againstAttempts": 48351,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 92.3,
+              "variance": -2.200000000000003
+            },
+            "DATA": {
+              "baseAttempts": 164498,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.4,
+              "againstAttempts": 147275,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.77,
+              "variance": -0.6300000000000097
+            },
+            "UNKNOWN": {
+              "baseAttempts": 25108,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 13789,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "FLORIDAREGION": {
+            "VOICE": {
+              "baseAttempts": 66858,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.25,
+              "againstAttempts": 71464,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 93.81,
+              "variance": -0.4399999999999977
+            },
+            "DATA": {
+              "baseAttempts": 206629,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.94,
+              "againstAttempts": 207486,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 98.52,
+              "variance": -0.4200000000000017
+            },
+            "UNKNOWN": {
+              "baseAttempts": 39769,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 30514,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "BIGSOUTHREGION": {
+            "VOICE": {
+              "baseAttempts": 73965,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.25,
+              "againstAttempts": 69621,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 94.63,
+              "variance": 0.37999999999999545
+            },
+            "DATA": {
+              "baseAttempts": 241462,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.87,
+              "againstAttempts": 210362,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 99.06,
+              "variance": 0.18999999999999773
+            },
+            "UNKNOWN": {
+              "baseAttempts": 41037,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 28822,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          }
+        },
+        "aggMetrics": {
+          "VOICE": {
+            "baseAttempts": 227118,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 94.32,
+            "baseAaa": 0,
+            "againstAttempts": 225688,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 93.96,
+            "againstAaa": 0,
+            "variance": -0.35999999999999943,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 94.32
+              },
+              "1472688000000": {
+                "SUCCESS": 93.96
+              }
+            }
+          },
+          "DATA": {
+            "baseAttempts": 743842,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 98.72,
+            "baseAaa": 0,
+            "againstAttempts": 683936,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 98.62,
+            "againstAaa": 0,
+            "variance": -0.09999999999999432,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 98.72
+              },
+              "1472688000000": {
+                "SUCCESS": 98.62
+              }
+            }
+          },
+          "UNKNOWN": {
+            "baseAttempts": 131296,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 0,
+            "baseAaa": 0,
+            "againstAttempts": 88261,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 0,
+            "againstAaa": 0,
+            "variance": 0,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 0
+              },
+              "1472688000000": {
+                "SUCCESS": 0
+              }
+            }
+          }
+        }
+      },
+      "WESTDIVISION": {
+        "metrics": {
+          "MILEHIGHREGION": {
+            "VOICE": {
+              "baseAttempts": 27253,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 93.54,
+              "againstAttempts": 28806,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 92.6,
+              "variance": -0.9400000000000119
+            },
+            "DATA": {
+              "baseAttempts": 96419,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.03,
+              "againstAttempts": 83974,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.77,
+              "variance": -0.2600000000000051
+            },
+            "UNKNOWN": {
+              "baseAttempts": 14286,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 8601,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "SEATTLEMARKET": {
+            "VOICE": {
+              "baseAttempts": 24154,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.7,
+              "againstAttempts": 23865,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 92.3,
+              "variance": -2.4000000000000057
+            },
+            "DATA": {
+              "baseAttempts": 75222,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.18,
+              "againstAttempts": 75650,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.62,
+              "variance": -0.5600000000000023
+            },
+            "UNKNOWN": {
+              "baseAttempts": 12576,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 7982,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "HOUSTONMARKET": {
+            "VOICE": {
+              "baseAttempts": 23410,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.49,
+              "againstAttempts": 22914,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 89.67,
+              "variance": -4.819999999999993
+            },
+            "DATA": {
+              "baseAttempts": 77148,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.85,
+              "againstAttempts": 69623,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.17,
+              "variance": -1.6799999999999926
+            },
+            "UNKNOWN": {
+              "baseAttempts": 13105,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 7044,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "TWINCITIESMARKET": {
+            "VOICE": {
+              "baseAttempts": 15139,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 95.32,
+              "againstAttempts": 14136,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 93.46,
+              "variance": -1.8599999999999994
+            },
+            "DATA": {
+              "baseAttempts": 45110,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.29,
+              "againstAttempts": 43369,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 98,
+              "variance": -0.29000000000000625
+            },
+            "UNKNOWN": {
+              "baseAttempts": 6923,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 4717,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "CALIFORNIAMARKET": {
+            "VOICE": {
+              "baseAttempts": 57089,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.43,
+              "againstAttempts": 59589,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 93.31,
+              "variance": -1.1200000000000045
+            },
+            "DATA": {
+              "baseAttempts": 178857,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.31,
+              "againstAttempts": 173553,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.77,
+              "variance": -0.5400000000000063
+            },
+            "UNKNOWN": {
+              "baseAttempts": 25278,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 16022,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "PORTLAND/SALEMMARKET": {
+            "VOICE": {
+              "baseAttempts": 12400,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 95.23,
+              "againstAttempts": 13116,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 91.55,
+              "variance": -3.680000000000007
+            },
+            "DATA": {
+              "baseAttempts": 41827,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.33,
+              "againstAttempts": 45485,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.65,
+              "variance": -0.6799999999999926
+            },
+            "UNKNOWN": {
+              "baseAttempts": 6251,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 4388,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "SALTLAKECITYMARKET": {
+            "VOICE": {
+              "baseAttempts": 9442,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 96.39,
+              "againstAttempts": 9170,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 92.55,
+              "variance": -3.8400000000000034
+            },
+            "DATA": {
+              "baseAttempts": 36254,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.5,
+              "againstAttempts": 33240,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.78,
+              "variance": -0.7199999999999989
+            },
+            "UNKNOWN": {
+              "baseAttempts": 4848,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 3052,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          }
+        },
+        "aggMetrics": {
+          "VOICE": {
+            "baseAttempts": 168887,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 94.58,
+            "baseAaa": 0,
+            "againstAttempts": 171596,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 92.4,
+            "againstAaa": 0,
+            "variance": -2.1799999999999926,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 94.58
+              },
+              "1472688000000": {
+                "SUCCESS": 92.4
+              }
+            }
+          },
+          "DATA": {
+            "baseAttempts": 550837,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 98.33,
+            "baseAaa": 0,
+            "againstAttempts": 524894,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 97.68,
+            "againstAaa": 0,
+            "variance": -0.6499999999999915,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 98.33
+              },
+              "1472688000000": {
+                "SUCCESS": 97.68
+              }
+            }
+          },
+          "UNKNOWN": {
+            "baseAttempts": 83267,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 0,
+            "baseAaa": 0,
+            "againstAttempts": 51806,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 0,
+            "againstAaa": 0,
+            "variance": 0,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 0
+              },
+              "1472688000000": {
+                "SUCCESS": 0
+              }
+            }
+          }
+        }
+      },
+      "NORTHEASTDIVISION": {
+        "metrics": {
+          "FREEDOMMARKET": {
+            "VOICE": {
+              "baseAttempts": 52305,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 96.49,
+              "againstAttempts": 51722,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 96.62,
+              "variance": 0.13000000000000966
+            },
+            "DATA": {
+              "baseAttempts": 117637,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.82,
+              "againstAttempts": 111604,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 99.04,
+              "variance": 0.22000000000001307
+            },
+            "UNKNOWN": {
+              "baseAttempts": 16165,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 12383,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "BELTWAYMARKET": {
+            "VOICE": {
+              "baseAttempts": 50978,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 94.88,
+              "againstAttempts": 51924,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 93.73,
+              "variance": -1.1499999999999915
+            },
+            "DATA": {
+              "baseAttempts": 145766,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.16,
+              "againstAttempts": 129831,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 98.02,
+              "variance": -0.14000000000000057
+            },
+            "UNKNOWN": {
+              "baseAttempts": 32801,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 15853,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "GREATERBOSTONMARKET": {
+            "VOICE": {
+              "baseAttempts": 44056,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 95.72,
+              "againstAttempts": 45703,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 96.46,
+              "variance": 0.7399999999999949
+            },
+            "DATA": {
+              "baseAttempts": 97803,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.8,
+              "againstAttempts": 112946,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 98.96,
+              "variance": 0.1599999999999966
+            },
+            "UNKNOWN": {
+              "baseAttempts": 15871,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 14591,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "WESTERNNEWENGLANDMARKET": {
+            "VOICE": {
+              "baseAttempts": 22980,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 96.28,
+              "againstAttempts": 21562,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 96.87,
+              "variance": 0.5900000000000034
+            },
+            "DATA": {
+              "baseAttempts": 50144,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.9,
+              "againstAttempts": 46106,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 99.01,
+              "variance": 0.10999999999999943
+            },
+            "UNKNOWN": {
+              "baseAttempts": 8267,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 6597,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          },
+          "KEYSTONEMARKET": {
+            "VOICE": {
+              "baseAttempts": 32486,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 96.45,
+              "againstAttempts": 30953,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 97.04,
+              "variance": 0.5900000000000034
+            },
+            "DATA": {
+              "baseAttempts": 85184,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 98.65,
+              "againstAttempts": 65389,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 99.19,
+              "variance": 0.539999999999992
+            },
+            "UNKNOWN": {
+              "baseAttempts": 13809,
+              "baseSuccessfulAttempts": 0,
+              "baseSuccess": 0,
+              "againstAttempts": 7918,
+              "againstSuccessfulAttempts": 0,
+              "againstSuccess": 0,
+              "variance": 0
+            }
+          }
+        },
+        "aggMetrics": {
+          "VOICE": {
+            "baseAttempts": 202805,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 95.89,
+            "baseAaa": 0,
+            "againstAttempts": 201864,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 95.93,
+            "againstAaa": 0,
+            "variance": 0.04000000000000625,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 95.89
+              },
+              "1472688000000": {
+                "SUCCESS": 95.93
+              }
+            }
+          },
+          "DATA": {
+            "baseAttempts": 496534,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 98.6,
+            "baseAaa": 0,
+            "againstAttempts": 465876,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 98.76,
+            "againstAaa": 0,
+            "variance": 0.1600000000000108,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 98.6
+              },
+              "1472688000000": {
+                "SUCCESS": 98.76
+              }
+            }
+          },
+          "UNKNOWN": {
+            "baseAttempts": 86913,
+            "baseSuccessfulAttempts": 0,
+            "baseSuccess": 0,
+            "baseAaa": 0,
+            "againstAttempts": 57342,
+            "againstSuccessfulAttempts": 0,
+            "againstSuccess": 0,
+            "againstAaa": 0,
+            "variance": 0,
+            "trendData": {
+              "1470009600000": {
+                "SUCCESS": 0
+              },
+              "1472688000000": {
+                "SUCCESS": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
