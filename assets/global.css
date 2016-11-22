@@ -1,0 +1,215 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    min-width: 1280px;
+}
+
+.dropdown button{
+    background: transparent !important;
+    border: 0;
+    color: #686c71 !important;
+    padding: .5em .5em .5em .5em;
+    margin: 0 -.5em;
+    outline: 0 !important;  
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .015em; 
+    line-height: 1;
+    display: block;
+}
+
+.dropdown.open button{
+    background: #dadada;
+}
+
+.dropdown-menu{
+    border: 0;
+    top: 90%;
+    box-shadow: 0 .1em .2em .1em rgba(0,0,0,.2);
+    border-radius: .3em;
+    min-width: 7rem;
+    margin-left: -.3em;
+    max-height: 20em;
+    overflow-y: scroll;
+}
+
+.dropdown-item{
+    padding: 3px .5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+.btn-primary:hover,.btn-primary.active{
+    background-color: #f4f5f7 !important;
+    border: 0;
+}
+
+
+.mrglobal-shadow{
+    box-shadow: 0 0 2px .5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"]{
+    padding: 0 .5em;
+    outline-color: #6AD3E3;
+}
+
+
+
+/* DATE PICKER*/
+
+.mr-datepicker .ui-kit-calendar-input{
+    color: #777 !important;
+    font-size: 1em !important;
+    background: transparent !important;
+    border: 0 !important;
+}
+
+.mr-datepicker .ui-kit-calendar-cal-container{
+    box-shadow: 0 .1em .5em .1em rgba(0,0,0,.2) !important;
+    transition: visibility 0s, opacity 50ms linear 50ms !important;
+    right: auto !important;
+    left: 0 !important;
+    top:40px !important;
+}
+
+.mr-datepicker  .ui-kit-calendar-cal-container:before{
+    position: absolute;
+    top: -17px;
+    left: 9px;
+    content: "";
+    width: 0;
+    height: 0;
+    transform: rotate(-90deg);
+    border-top: 11px solid transparent ;
+    border-bottom: 11px solid transparent ;
+    border-left: 12px solid #eee ;
+   
+}
+
+.mr-datepicker .today{
+    color: #000;
+    font-weight: 600;
+}
+.mr-datepicker .ion-arrow-left-b{
+    background: url('/assets/images/icon-leftarrow.svg') no-repeat 11px center;
+}
+
+.mr-datepicker .ion-arrow-right-b{
+    background: url('/assets/images/icon-rightarrow.svg') no-repeat center center;
+}
+
+.mr-datepicker  .ui-kit-calendar-cal-container:after{
+    left: 10px ;
+    right:0 !important;
+     border-top: 10px solid transparent !important;
+    border-bottom: 10px solid transparent !important;
+    border-left: 10px solid white !important;
+}
+
+.mr-datepicker  .ui-kit-calendar-container,.mr-datepicker .ui-kit-calendar-input{
+    width: auto !important;
+}
+
+.mr-datepicker .ui-kit-calendar-container .ui-kit-calendar-cal-container .ui-kit-calendar-cal-top  span{
+    width: 240px !important;
+}
+
+.mr-datepicker .ui-kit-calendar-input{
+    margin-right: 0 !important;
+}
+.mr-datepicker .ui-kit-calendar-container{
+    background: url('/assets/images/icon-calendar.svg') right center no-repeat;
+    padding-right: .4em;
+    margin-right:0;
+}
+
+.mr-datepicker  .ui-kit-calendar-days  span{
+    height: 43px !important;
+    line-height: 42px !important;
+    border-radius: 50%;
+}
+
+.mr-datepicker .ui-kit-calendar-day-names{
+    background: transparent !important;
+    color: #7F8691;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.mr-datepicker .ui-kit-calendar-cal-container{
+    color: #868E98 !important;
+    background: white !important;
+    width: 340px !important;
+    padding: 10px !important;
+}
+
+.mr-datepicker .is-active{
+     background: #44c8f9 !important;
+    color: white !important;
+}
+
+
+
+.mrpdftemplate-content{
+    display: none;
+}
+
+
+.mrpdf-print .mrpdftemplate-content{
+    display: block;
+}
+
+.mrpdf-print mr-pdf-exporter{
+    display: none;
+}
+
+.mrpdf-print .mrpdftemplate-body{
+    height: 65.7vw;
+    overflow: hidden;
+}
+mr-pdf-exporter{
+    position: absolute;
+    right: 1em;
+    top: .1em;
+    cursor: pointer;
+    z-index: 100;
+}
+
+mr-pdf-exporter img {
+    width: 1.2em;
+}
+
+
+
+.mrsticky-container
+{
+    position: absolute;
+    width: 100%;
+    z-index: 5;
+    top:0;
+    right:0;
+    width: calc(100% - 200px);
+    pointer-events: none;
+}
+
+.mrsticky-container .mrsticky{
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-left: -1px;
+    margin-right: -1px;
+    opacity: 0;
+    transition: 100ms ease-in-out opacity;
+    box-shadow: 0 0 5px 2.5px rgba(0, 0, 0, 0.1);
+}
+
+.mrsticky-container .mrsticky.is-float{
+    opacity: 1;
+}
+
+.mrsticky-hidden{
+    opacity: 0;
+}
